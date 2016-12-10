@@ -25,4 +25,20 @@ class HomeController extends Controller
     {
         return view('frontend/home');
     }
+
+    public function plan()
+    {
+        return view('frontend/plan');
+    }
+
+    public function gallery()
+    {
+        return view('frontend/gallery');
+    }
+
+    public function contact()
+    {
+        return view('frontend/contact');
+    }
 }
+

@@ -1,6 +1,9 @@
 @extends('layouts.frontend')
 
 @push('plugin_css')
+<link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/owl.theme.css">
+<link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/owl.transitions.css">
 @endpush
 
 @section('content')
@@ -21,7 +24,7 @@
                             <h1>Find your perfect Wedding Vendor</h1>
                             <p>Over <strong>1200+ Wedding Vendor </strong>for you special date &amp; Find the perfect venue &amp; save you date.</p>
                         </div>
-                        <div class="finderform">
+                        <!--<div class="finderform">
                             <form>
                                 <div class="row">
                                     <div class="form-group col-md-4">
@@ -53,7 +56,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

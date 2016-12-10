@@ -17,17 +17,18 @@
     <link href="{{ url('assets') }}/css/bootstrap.min.css" rel="stylesheet">
     <!-- Template style.css -->
     <link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/style.css">
-    <link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/owl.theme.css">
-    <link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/owl.transitions.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/fontello.css">
+
+    @stack('plugin_css')
     <!-- Font used in template -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,500,500italic,700,700italic,300italic,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,300italic,300' rel='stylesheet' type='text/css'>
     <!--font awesome icon -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- favicon icon -->
     <link rel="shortcut icon" href="{{ url('assets') }}/images/favicon.ico" type="image/x-icon">
 
-    @stack('plugin_css')
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -69,16 +70,16 @@
         <div class="row">
             <div class="col-md-3 col-sm-12 logo">
                 <div class="navbar-brand">
-                    <a href="index-2.html"><img src="{{ url('assets') }}/images/logo.png" alt="Wedding Vendors" class="img-responsive"></a>
+                    <a href="{{ url('/') }}"><img src="{{ url('assets') }}/images/logo.png" alt="Wedding Vendors" class="img-responsive"></a>
                 </div>
             </div>
             <div class="col-md-9 col-sm-12">
                 <div class="navigation" id="navigation">
                     <ul>
                         <li class="active"><a href="{{ url('/') }}">Home</a></li>
-                        <li class="active"><a href="index-2.html">Wedding Plan</a></li>
-                        <li class="active"><a href="index-2.html">Gallery</a></li>
-                        <li class="active"><a href="index-2.html">Contact Us</a></li>
+                        <li class="active"><a href="{{ route('plan') }}">Wedding Plan</a></li>
+                        <li class="active"><a href="{{ route('gallery') }}">Gallery</a></li>
+                        <li class="active"><a href="{{ route('contact') }}">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -138,7 +139,7 @@
     <!-- Tiny footer -->
     <div class="container">
         <div class="row">
-            <div class="col-md-12">Copyright © 2014. All Rights Reserved</div>
+            <div class="col-md-12">Copyright © {{ date('Y') }} Bali Klasik. All Rights Reserved</div>
         </div>
     </div>
 </div>
