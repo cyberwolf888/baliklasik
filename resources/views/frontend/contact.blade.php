@@ -42,15 +42,8 @@
                         <form>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="control-label" for="first">First Name <span class="required">*</span></label>
+                                <label class="control-label" for="first">Your Name <span class="required">*</span></label>
                                 <input id="first" name="first" type="text" placeholder="First Name" class="form-control input-md" required>
-                            </div>
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class=" control-label" for="lastname">Last Name <span class="required">*</span></label>
-                                <div class=" ">
-                                    <input id="lastname" name="lastname" type="text" placeholder="Last name" class="form-control input-md" required>
-                                </div>
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
@@ -61,16 +54,6 @@
                             <div class="form-group">
                                 <label class=" control-label" for="phone">Phone <span class="required">*</span></label>
                                 <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control input-md" required>
-                            </div>
-                            <!-- Select Basic -->
-                            <div class="form-group">
-                                <label class=" control-label" for="category">Category <span class="required">*</span></label>
-                                <select id="category" name="category" class="form-control selectpicker">
-                                    <option value="Couple">Couple</option>
-                                    <option value="Vendor">Vendor</option>
-                                    <option value="Advertisement">Advertisement</option>
-                                    <option value="Suggestion">Suggestion</option>
-                                </select>
                             </div>
                             <!-- Textarea -->
                             <div class="form-group">
@@ -89,15 +72,15 @@
                         <ul class="listnone">
                             <li class="address">
                                 <h2><i class="fa fa-map-marker"></i>Location</h2>
-                                <p>1228 Hawks Nest Lane Saint Louis, MO 63143</p>
+                                <p>Jalan Denpasar No. xxx</p>
                             </li>
                             <li class="email">
                                 <h2><i class="fa fa-envelope"></i>E-Mail</h2>
-                                <p>Info@weddingvendor.com</p>
+                                <p>Info@baliklasik.com</p>
                             </li>
                             <li class="call">
                                 <h2><i class="fa fa-phone"></i>Contact</h2>
-                                <p>+1800-123-4567</p>
+                                <p>+6200-123-4567</p>
                             </li>
                         </ul>
                     </div>
@@ -105,7 +88,7 @@
                 <div class="col-md-6">
                     <div class="well-box">
                         <h2>Need Help ?</h2>
-                        <p>Are you an advertiser enquiring about advertising in You &amp; Your Wedding or on weddingvendor? Please <a href="#">click here </a>to contact the advertising team.</p>
+                        <p>We're here to help, 24 hours a day, 7 days a week.</p>
                     </div>
                 </div>
             </div>

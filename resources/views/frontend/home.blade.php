@@ -21,8 +21,8 @@
                 <div class="row">
                     <div class="col-md-offset-1 col-md-10 finder-block">
                         <div class="finder-caption">
-                            <h1>Find your perfect Wedding Vendor</h1>
-                            <p>Over <strong>1200+ Wedding Vendor </strong>for you special date &amp; Find the perfect venue &amp; save you date.</p>
+                            <h1>Find your perfect Wedding Orginizer</h1>
+                            <p>Over <strong>100+ Wedding Event </strong>for you special date &amp; Find the perfect venue &amp; save you date.</p>
                         </div>
                         <!--<div class="finderform">
                             <form>
@@ -72,7 +72,7 @@
                 <div class="col-md-12">
                     <div class="section-title mb60 text-center">
                         <h1>Your Wedding Planing Start Here</h1>
-                        <p>Various versions have evolved over the years sometimes by accident sometimes on purpose.</p>
+                        <p>We will help you to take care of all your wedding events.</p>
                     </div>
                 </div>
             </div>
@@ -82,8 +82,8 @@
                     <div class="feature-block feature-center">
                         <!-- feature block -->
                         <div class="feature-icon"><img src="{{ url('assets') }}/images/vendor.svg" alt=""></div>
-                        <h2>Find local vendor</h2>
-                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
+                        <h2>Select Package</h2>
+                        <p>Please select packages available to suit your needs or budget.</p>
                     </div>
                 </div>
                 <!-- /.feature block -->
@@ -91,8 +91,8 @@
                     <div class="feature-block feature-center">
                         <!-- feature block -->
                         <div class="feature-icon"><img src="{{ url('assets') }}/images/mail.svg" alt=""></div>
-                        <h2>Contact vendor</h2>
-                        <p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                        <h2>Make a Reservation</h2>
+                        <p>Make reservations and payments directly through this website and wait for confirmation from us.</p>
                     </div>
                 </div>
                 <!-- /.feature block -->
@@ -101,7 +101,7 @@
                         <!-- feature block -->
                         <div class="feature-icon"><img src="{{ url('assets') }}/images/couple.svg" alt=""></div>
                         <h2>Save Your Date</h2>
-                        <p>The generated Lorem Ipsum is therefore always free from repetition injected humour or non-characteristic words etc.</p>
+                        <p>Determine the date and venue of your wedding and we'll take care of everything for you.</p>
                     </div>
                 </div>
                 <!-- /.feature block -->
@@ -116,8 +116,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title mb60 text-center">
-                        <h1>Featured Wedding Vendor</h1>
-                        <p>Many desktop publishing packages and web page editors now use orem psum as their default model text.</p>
+                        <h1>Featured Wedding Package</h1>
+                        <p>Below are some of the featured our wedding packages.</p>
                     </div>
                 </div>
             </div>
@@ -136,13 +136,13 @@
                             <!-- vendor details -->
                             <div class="caption">
                                 <!-- caption -->
-                                <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                                <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                                <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(2)</span> </div>
+                                <h2><a href="#" class="title">Package 1</a></h2>
+                                <p>Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span </p>
+                                <a href="{{ route('plan') }}" class="btn btn-primary btn-sm">Learn More</a>
                             </div>
                             <!-- /.caption -->
                             <div class="vendor-price">
-                                <div class="price">$190 - $600</div>
+                                <div class="price">IDR 100.000.000</div>
                             </div>
                         </div>
                         <!-- vendor details -->
@@ -164,12 +164,12 @@
                             <div class="caption">
                                 <!-- caption -->
                                 <h2><a href="#" class="title"> Wedding Dress Vendor Title</a></h2>
-                                <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                                <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span> </div>
+                                <p>Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span </p>
+                                <a href="{{ route('plan') }}" class="btn btn-primary btn-sm">Learn More</a>
                             </div>
                             <!-- /.caption -->
                             <div class="vendor-price">
-                                <div class="price">$290 - $600</div>
+                                <div class="price">IDR 200.000.000</div>
                             </div>
                         </div>
                     </div>
@@ -190,12 +190,12 @@
                         <div class="caption">
                             <!-- caption -->
                             <h2><a href="#" class="title">Vendor Photographer Title</a></h2>
-                            <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(5)</span> </div>
+                            <p>Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span </p>
+                            <a href="{{ route('plan') }}" class="btn btn-primary btn-sm">Learn More</a>
                         </div>
                         <!-- /.caption -->
                         <div class="vendor-price">
-                            <div class="price">$390 - $600</div>
+                            <div class="price">IDR 300.000.000</div>
                         </div>
                     </div>
                     <!-- vendor details -->
@@ -210,8 +210,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title mb60 text-center">
-                        <h1>Top Wedding Locations</h1>
-                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
+                        <h1>Top Wedding Event</h1>
+                        <p>Here are some of the biggest wedding events we've ever done.</p>
                     </div>
                 </div>
             </div>
@@ -219,31 +219,31 @@
                 <div class="col-md-4 location-block">
                     <!-- location block -->
                     <div class="vendor-image">
-                        <a href="#"><img src="{{ url('assets') }}/images/location-pic.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"><span class="label label-default">New York City</span></a> </div>
+                        <a href="#"><img src="{{ url('assets') }}/images/location-pic.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"></a> </div>
                 </div>
                 <!-- /.location block -->
                 <div class="col-md-4 location-block">
                     <!-- location block -->
                     <div class="vendor-image">
-                        <a href="#"><img src="{{ url('assets') }}/images/location-pic-2.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"><span class="label label-default">Sydney</span></a> </div>
+                        <a href="#"><img src="{{ url('assets') }}/images/location-pic-2.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"></a> </div>
                 </div>
                 <!-- /.location block -->
                 <div class="col-md-4 location-block">
                     <!-- location block -->
                     <div class="vendor-image">
-                        <a href="#"><img src="{{ url('assets') }}/images/location-pic-3.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"><span class="label label-default">Russia</span></a> </div>
+                        <a href="#"><img src="{{ url('assets') }}/images/location-pic-3.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"></a> </div>
                 </div>
                 <!-- /.location block -->
                 <div class="col-md-8 location-block">
                     <!-- location block -->
                     <div class="vendor-image">
-                        <a href="#"><img src="{{ url('assets') }}/images/location-pic-4.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"><span class="label label-default">Germany</span></a> </div>
+                        <a href="#"><img src="{{ url('assets') }}/images/location-pic-4.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"></a> </div>
                 </div>
                 <!-- /.location block -->
                 <div class="col-md-4 location-block">
                     <!-- location block -->
                     <div class="vendor-image">
-                        <a href="#"><img src="{{ url('assets') }}/images/location-pic-5.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"><span class="label label-default">Paris</span></a> </div>
+                        <a href="#"><img src="{{ url('assets') }}/images/location-pic-5.jpg" alt="" class="img-responsive"></a> <a href="#" class="venue-lable"></a> </div>
                 </div>
                 <!-- /.location block -->
             </div>
@@ -258,7 +258,7 @@
                 <div class="col-md-12">
                     <div class="section-title mb60 text-center">
                         <h1>Just Get Married Happy Couple</h1>
-                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
+                        <p>Here are some opinions from our customers.</p>
                     </div>
                 </div>
             </div>
@@ -271,17 +271,17 @@
                                 <p>"Had our wedding on 15th may 2015 and have to say Jenny and the team made it a wonderful and enjoyable day were Notting was a problem from the build up to the day."</p>
                             </div>
                             <div class="couple-info">
-                                <div class="name">Dave Macwan</div>
+                                <div class="name">Andy</div>
                                 <div class="date">Thu, 21st June, 2015</div>
                             </div>
                         </div>
                         <div class="item testimonial-block">
                             <div class="couple-pic"><img src="{{ url('assets') }}/images/couple-2.jpg" alt="" class="img-circle"></div>
                             <div class="feedback-caption">
-                                <p>"Vestibulum vitae neque urna. Duis ut mauris mi. Sed vehicula vestibulum finias their default model text and a search for lorem ipsum will uncover manym elit posuerenia eget sem."</p>
+                                <p>"Had our wedding on 15th Oct 2015 and have to say Jenny and the team made it a wonderful and enjoyable day were Notting was a problem from the build up to the day."</p>
                             </div>
                             <div class="couple-info">
-                                <div class="name">Marry &amp; Leary</div>
+                                <div class="name">Jerry</div>
                                 <div class="date">Thu, 13th July, 2015</div>
                             </div>
                         </div>
@@ -291,17 +291,17 @@
                                 <p>"Had our wedding on 15th Oct 2015 and have to say Jenny and the team made it a wonderful and enjoyable day were Notting was a problem from the build up to the day."</p>
                             </div>
                             <div class="couple-info">
-                                <div class="name">Jhon Doe &amp; Doe Jassica</div>
+                                <div class="name">Hermawan</div>
                                 <div class="date">Thu, 21st Aug, 2015</div>
                             </div>
                         </div>
                         <div class="item testimonial-block">
                             <div class="couple-pic"><img src="{{ url('assets') }}/images/couple-4.jpg" alt="" class="img-circle"></div>
                             <div class="feedback-caption">
-                                <p>"Etiam ut metus nisi. Sed non laoreet nisi tinciin interdum risus felis enjoyable day were Notting was a problem from the build up to the dayvel eleifend milaoreet consectetur."</p>
+                                <p>"Had our wedding on 15th Oct 2015 and have to say Jenny and the team made it a wonderful and enjoyable day were Notting was a problem from the build up to the day."</p>
                             </div>
                             <div class="couple-info">
-                                <div class="name">Dave Macwan</div>
+                                <div class="name">Dodik</div>
                                 <div class="date">Thu, 12th Sept, 2015</div>
                             </div>
                         </div>

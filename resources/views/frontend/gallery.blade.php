@@ -14,7 +14,7 @@
                             <i class="icon icon-size-60 icon-menu icon-white"></i>
                         </div>
                         <h1>Gallery</h1>
-                        <p>Fusce vo.</p>
+                        <p>Here are some pictures of some of the wedding we had done.</p>
                     </div>
                 </div>
             </div>
@@ -48,12 +48,6 @@
                         <div class="caption">
                             <!-- caption -->
                             <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                            <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span> </div>
-                        </div>
-                        <!-- /.caption -->
-                        <div class="vendor-price">
-                            <div class="price">$390 - $600</div>
                         </div>
                     </div>
                     <!-- venue details -->
@@ -72,12 +66,6 @@
                         <div class="caption">
                             <!-- caption -->
                             <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                            <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span> </div>
-                        </div>
-                        <!-- /.caption -->
-                        <div class="vendor-price">
-                            <div class="price">$390 - $600</div>
                         </div>
                     </div>
                     <!-- venue details -->
@@ -96,12 +84,6 @@
                         <div class="caption">
                             <!-- caption -->
                             <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                            <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                            <div class="rating "> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span> </div>
-                        </div>
-                        <!-- /.caption -->
-                        <div class="vendor-price">
-                            <div class="price">$390 - $600</div>
                         </div>
                     </div>
                     <!-- venue details -->
@@ -120,12 +102,6 @@
                         <div class="caption">
                             <!-- caption -->
                             <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                            <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                            <div class="rating "> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span> </div>
-                        </div>
-                        <!-- /.caption -->
-                        <div class="vendor-price">
-                            <div class="price">$390 - $600</div>
                         </div>
                     </div>
                     <!-- venue details -->
@@ -144,12 +120,6 @@
                         <div class="caption">
                             <!-- caption -->
                             <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                            <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                            <div class="rating "> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span> </div>
-                        </div>
-                        <!-- /.caption -->
-                        <div class="vendor-price">
-                            <div class="price">$390 - $600</div>
                         </div>
                     </div>
                     <!-- venue details -->
@@ -168,12 +138,6 @@
                         <div class="caption">
                             <!-- caption -->
                             <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                            <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                            <div class="rating "> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span> </div>
-                        </div>
-                        <!-- /.caption -->
-                        <div class="vendor-price">
-                            <div class="price">$390 - $600</div>
                         </div>
                     </div>
                     <!-- venue details -->
@@ -192,12 +156,6 @@
                         <div class="caption">
                             <!-- caption -->
                             <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                            <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                            <div class="rating "> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span> </div>
-                        </div>
-                        <!-- /.caption -->
-                        <div class="vendor-price">
-                            <div class="price">$390 - $600</div>
                         </div>
                     </div>
                     <!-- venue details -->
@@ -216,12 +174,6 @@
                         <div class="caption">
                             <!-- caption -->
                             <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                            <p class="location"><i class="fa fa-map-marker"></i> Street Address, Name of Town, 12345, Country.</p>
-                            <div class="rating "> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span> </div>
-                        </div>
-                        <!-- /.caption -->
-                        <div class="vendor-price">
-                            <div class="price">$390 - $600</div>
                         </div>
                     </div>
                     <!-- venue details -->
