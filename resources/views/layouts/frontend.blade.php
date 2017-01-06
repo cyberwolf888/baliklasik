@@ -57,9 +57,22 @@
             </div>
             <div class="col-md-6 top-links">
                 <ul class="listnone">
-                    <li><a href="faq.html"> Help </a></li>
-                    <li><a href="pricing-plan.html">Register</a></li>
+                    @if (Auth::guest())
+                    <li><a href="{{ url('register') }}">Register</a></li>
                     <li><a href="{{ url('login') }}">Log in</a></li>
+                    @else
+                        <li>
+                            <a href="{{ url('/logout') }}"
+                               onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

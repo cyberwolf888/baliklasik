@@ -19,3 +19,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/plan', 'HomeController@plan')->name('plan');
 Route::get('/gallery', 'HomeController@gallery')->name('gallery');
 Route::get('/contact', 'HomeController@contact')->name('contact');
+
+// Route master
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+    Route::get('/', 'Master\DashboardController@index');
+});
