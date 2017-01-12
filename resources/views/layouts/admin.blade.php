@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="{{ url('assets/backend') }}/img/logo-icon-dark.png">
 
     <link type='text/css' href='https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500' rel='stylesheet'>
-    <link type='text/css'  href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+    <link href="{{ url('assets/backend') }}/icons/material-icons.css" type="text/css" rel="stylesheet">
 
     <link href="{{ url('assets/backend') }}/fonts/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">        <!-- Font Awesome -->
     <link href="{{ url('assets/backend') }}/css/styles.css" type="text/css" rel="stylesheet">                                     <!-- Core CSS with all styles -->
@@ -183,6 +183,7 @@
                                 <li class="nav-separator"><span>Navigation</span></li>
                                 <li><a  class="withripple" href="{{ url('admin') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
                                 <li><a  class="withripple" href="{{ route('admin.paket.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Wedding Package</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.gallery.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Gallery</span></a></li>
                                 <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">code</i></span><span>Angular (coming soon!)</span></a></li>
                                 <li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">flash_on</i></span><span>Layout</span></a>
                                     <ul class="acc-menu">

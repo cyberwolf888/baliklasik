@@ -30,6 +30,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin'], 'as'=>'admin'
         Route::get('/', 'Master\PaketController@index')->name('.manage');
         Route::get('/create', 'Master\PaketController@create')->name('.create');
         Route::post('/create', 'Master\PaketController@store')->name('.store');
+        Route::get('/update/{id}', 'Master\PaketController@edit')->name('.edit');
+        Route::post('/update/{id}', 'Master\PaketController@update')->name('.update');
+        Route::get('/detail/{id}', 'Master\PaketController@show')->name('.detail');
+        Route::get('/delete/{id}', 'Master\PaketController@destroy')->name('.delete');
+    });
+
+    //gallery
+    Route::group(['prefix' => 'gallery', 'as'=>'.gallery'], function() {
+        Route::get('/', 'Master\GalleryController@index')->name('.manage');
+        Route::get('/create', 'Master\GalleryController@create')->name('.create');
+        Route::post('/create', 'Master\GalleryController@store')->name('.store');
+        Route::get('/update/{id}', 'Master\GalleryController@edit')->name('.edit');
+        Route::post('/update/{id}', 'Master\GalleryController@update')->name('.update');
+        Route::get('/detail/{id}', 'Master\GalleryController@show')->name('.detail');
+        Route::get('/delete/{id}', 'Master\GalleryController@destroy')->name('.delete');
     });
 });
 
