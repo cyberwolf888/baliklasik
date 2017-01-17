@@ -29,4 +29,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getStatus()
+    {
+        $status = ['1' => 'Active', '0' => 'Non Active'];
+        return $status[$this->status];
+    }
 }

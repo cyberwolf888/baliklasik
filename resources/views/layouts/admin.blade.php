@@ -184,6 +184,12 @@
                                 <li><a  class="withripple" href="{{ url('admin') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
                                 <li><a  class="withripple" href="{{ route('admin.paket.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Wedding Package</span></a></li>
                                 <li><a  class="withripple" href="{{ route('admin.gallery.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Gallery</span></a></li>
+                                <li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">flash_on</i></span><span>Users</span></a>
+                                    <ul class="acc-menu">
+                                        <li><a  class="withripple" href="{{ route('admin.user.member.manage') }}">Member</a></li>
+                                        <li><a  class="withripple" href="{{ route('admin.user.admin.manage') }}">Admin</a></li>
+                                    </ul>
+                                </li>
                                 <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">code</i></span><span>Angular (coming soon!)</span></a></li>
                                 <li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">flash_on</i></span><span>Layout</span></a>
                                     <ul class="acc-menu">

@@ -10,11 +10,12 @@
         <ol class="breadcrumb">
 
             <li class=""><a href="{{ route('admin.dashboard') }}">Home</a></li>
-            <li class="active"><a href="{{ route('admin.gallery.manage') }}">Gallery</a></li>
+            <li class="active"><a href="{{ route('admin.user.member.manage') }}">User</a></li>
+            <li class="active"><a href="{{ route('admin.user.member.manage') }}">Member</a></li>
 
         </ol>
         <div class="page-heading">
-            <h1>Wedding Gallery<small>Wedding Gallery</small></h1>
+            <h1>Manage User<small>Member</small></h1>
             <div class="options">
             </div>
         </div>
@@ -22,7 +23,7 @@
             <div data-widget-group="group1">
                 <div class="row">
                     <div class="col-md-12">
-                        <a class="btn btn-lg btn-primary btn-raised btn-label" href="{{ route('admin.gallery.create') }}"><i class="fa fa-download"></i> Add New Data<div class="ripple-container"></div></a>
+                        <a class="btn btn-lg btn-primary btn-raised btn-label" href="{{ route('admin.user.member.create') }}"><i class="fa fa-download"></i> Add New Data<div class="ripple-container"></div></a>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h2>Data Tables</h2>
@@ -32,21 +33,23 @@
                                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
+                                        <th>Nama</th>
+                                        <th>No HP</th>
+                                        <th>Alamat</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($model as $row)
                                         <tr>
-                                            <td><img src="{{ url('images/'.$row->image) }}" width="150" height="100"></td>
-                                            <td>{{ $row->title }}</td>
-                                            <td>{{ $row->deskripsi }}</td>
+                                            <td>{{ $row->nama }}</td>
+                                            <td>{{ $row->no_hp }}</td>
+                                            <td>{{ $row->alamat }}</td>
+                                            <td>{{ $row->user->getStatus() }}</td>
                                             <td class="center">
                                                 <a href="javascript:null" data-id="{{ $row->id }}" class="btn btn-danger btn-raised btn-xs hapus"><i class="fa fa-close"></i><div class="ripple-container"></div></a>
-                                                <a href="{{ route('admin.gallery.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a></td>
+                                                <a href="{{ route('admin.user.member.edit',$row->id) }}" class="btn btn-warning btn-raised btn-xs"><i class="fa fa-pencil"></i><div class="ripple-container"></div></a>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -73,7 +76,7 @@
         var id = $(this).data("id");
         var p = confirm('Are you sure to delete this data?');
         if(p==true){
-            window.location = "<?= url('admin/gallery/delete') ?>/"+id;
+            window.location = "<?= url('admin/user/member/delete') ?>/"+id;
         }else{
 
         }

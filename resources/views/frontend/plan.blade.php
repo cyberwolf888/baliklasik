@@ -42,45 +42,20 @@
     <div class="main-container">
         <div class="container">
             <div class="row pricing-container">
+                @foreach(\App\Models\Paket::where('status',1)->get() as $paket)
                 <div class="col-md-4 pricing-box pricing-box-regualr">
                     <div class="well-box">
-                        <h2 class="price-title">sliver</h2>
-                        <h1 class="price-plan"><span class="dollor-sign">IDR</span> 100.000.000</h1>
-                        <p>Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span </p>
+                        <h2 class="price-title">{{ $paket->nama }}</h2>
+                        <h1 class="price-plan"><span class="dollor-sign">IDR</span> {{ number_format($paket->harga,0,',','.') }}</h1>
+                        <p>{{ $paket->deskripsi }}</p>
                         <a href="#" class="btn btn-default btn-sm">Select Plan</a> </div>
                     <ul class="check-circle list-group">
-                        <li class="list-group-item">24/7 Email Support</li>
-                        <li class="list-group-item">ePayments &amp; eInvoices</li>
-                        <li class="list-group-item">Advanced Review Management</li>
-                        <li class="list-group-item">Education Webinars</li>
+                        @foreach($paket->detail as $detail)
+                            <li class="list-group-item">{{ $detail->value }}</li>
+                        @endforeach
                     </ul>
                 </div>
-                <div class="col-md-4 pricing-box pricing-box-top">
-                    <div class="well-box">
-                        <h2 class="price-title">gold</h2>
-                        <h1 class="price-plan"><span class="dollor-sign">IDR</span> 200.000.000</h1>
-                        <p>Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span </p>
-                        <a href="#" class="btn btn-primary btn-sm">Select Plan</a> </div>
-                    <ul class="check-circle list-group">
-                        <li class="list-group-item">24/7 Email Support</li>
-                        <li class="list-group-item">Unlimited User Accounts</li>
-                        <li class="list-group-item">Secure Client Transactions</li>
-                        <li class="list-group-item">Online Appointment Scheduling</li>
-                    </ul>
-                </div>
-                <div class="col-md-4 pricing-box pricing-box-regualr">
-                    <div class="well-box">
-                        <h2 class="price-title">Platinum</h2>
-                        <h1 class="price-plan"><span class="dollor-sign">IDR</span> 300.000.000</h1>
-                        <p>Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span Span </p>
-                        <a href="#" class="btn btn-default btn-sm">Select Plan</a> </div>
-                    <ul class="check-circle list-group">
-                        <li class="list-group-item">24/7 Email Support</li>
-                        <li class="list-group-item">ePayments &amp; eInvoices</li>
-                        <li class="list-group-item">Advanced Review Management</li>
-                        <li class="list-group-item">Education Webinars</li>
-                    </ul>
-                </div>
+                @endforeach
             </div>
             <div></div>
             <div class="section-space80">

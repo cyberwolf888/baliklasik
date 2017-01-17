@@ -46,6 +46,29 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin'], 'as'=>'admin'
         Route::get('/detail/{id}', 'Master\GalleryController@show')->name('.detail');
         Route::get('/delete/{id}', 'Master\GalleryController@destroy')->name('.delete');
     });
+
+    //gallery
+    Route::group(['prefix' => 'user', 'as'=>'.user'], function() {
+        Route::group(['prefix' => 'member', 'as'=>'.member'], function() {
+            Route::get('/', 'Master\UserController@member_index')->name('.manage');
+            Route::get('/create', 'Master\UserController@member_create')->name('.create');
+            Route::post('/create', 'Master\UserController@member_store')->name('.store');
+            Route::get('/update/{id}', 'Master\UserController@member_edit')->name('.edit');
+            Route::post('/update/{id}', 'Master\UserController@member_update')->name('.update');
+            Route::get('/detail/{id}', 'Master\UserController@member_show')->name('.detail');
+            Route::get('/delete/{id}', 'Master\UserController@member_destroy')->name('.delete');
+        });
+
+        Route::group(['prefix' => 'admin', 'as'=>'.admin'], function() {
+            Route::get('/', 'Master\UserController@admin_index')->name('.manage');
+            Route::get('/create', 'Master\UserController@admin_create')->name('.create');
+            Route::post('/create', 'Master\UserController@admin_store')->name('.store');
+            Route::get('/update/{id}', 'Master\UserController@admin_edit')->name('.edit');
+            Route::post('/update/{id}', 'Master\UserController@admin_update')->name('.update');
+            Route::get('/detail/{id}', 'Master\UserController@admin_show')->name('.detail');
+            Route::get('/delete/{id}', 'Master\UserController@admin_destroy')->name('.delete');
+        });
+    });
 });
 
 // Route master

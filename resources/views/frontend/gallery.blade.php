@@ -26,7 +26,7 @@
                 <div class="col-md-12">
                     <ol class="breadcrumb">
                         <li><a href="#">Home</a></li>
-                        <li class="active">Vendor List – 4 column</li>
+                        <li class="active">Gallery</li>
                     </ol>
                 </div>
             </div>
@@ -35,152 +35,27 @@
     <div class="main-container">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 vendor-box">
-                    <!-- venue box start-->
-                    <div class="vendor-image">
-                        <!-- venue pic -->
-                        <a href="#"><img src="{{ url('assets') }}/images/vendor-1.jpg" alt="wedding venue" class="img-responsive"></a>
-                        <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
-                    </div>
-                    <!-- /.venue pic -->
-                    <div class="vendor-detail">
-                        <!-- venue details -->
-                        <div class="caption">
-                            <!-- caption -->
-                            <h2><a href="#" class="title">Venue Vendor Title</a></h2>
+                @foreach(\App\Models\Gallery::all() as $gallery)
+                    <div class="col-md-3 vendor-box">
+                        <!-- venue box start-->
+                        <div class="vendor-image">
+                            <!-- venue pic -->
+                            <a href="#"><img src="{{ url('images/'.$gallery->image) }}" alt="{{ $gallery->title }}" class="img-responsive"></a>
+                            <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
                         </div>
-                    </div>
-                    <!-- venue details -->
-                </div>
-                <!-- /.venue box start-->
-                <div class="col-md-3 vendor-box">
-                    <!-- venue box start-->
-                    <div class="vendor-image">
-                        <!-- venue pic -->
-                        <a href="#"><img src="{{ url('assets') }}/images/vendor-2.jpg" alt="wedding venue" class="img-responsive"></a>
-                        <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
-                    </div>
-                    <!-- /.venue pic -->
-                    <div class="vendor-detail">
-                        <!-- venue details -->
-                        <div class="caption">
-                            <!-- caption -->
-                            <h2><a href="#" class="title">Venue Vendor Title</a></h2>
+                        <!-- /.venue pic -->
+                        <div class="vendor-detail">
+                            <!-- venue details -->
+                            <div class="caption">
+                                <!-- caption -->
+                                <h2><a href="#" class="title">{{ $gallery->title }}</a></h2>
+                            </div>
                         </div>
-                    </div>
-                    <!-- venue details -->
-                </div>
-                <!-- /.venue box start-->
-                <div class="col-md-3 vendor-box">
-                    <!-- venue box start-->
-                    <div class="vendor-image">
-                        <!-- venue pic -->
-                        <a href="#"><img src="{{ url('assets') }}/images/vendor-3.jpg" alt="wedding venue" class="img-responsive"></a>
-                        <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
-                    </div>
-                    <!-- /.venue pic -->
-                    <div class="vendor-detail">
                         <!-- venue details -->
-                        <div class="caption">
-                            <!-- caption -->
-                            <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                        </div>
                     </div>
-                    <!-- venue details -->
-                </div>
-                <!-- /.venue box start-->
-                <div class="col-md-3 vendor-box">
-                    <!-- venue box start-->
-                    <div class="vendor-image">
-                        <!-- venue pic -->
-                        <a href="#"><img src="{{ url('assets') }}/images/vendor-4.jpg" alt="wedding venue" class="img-responsive"></a>
-                        <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
-                    </div>
-                    <!-- /.venue pic -->
-                    <div class="vendor-detail">
-                        <!-- venue details -->
-                        <div class="caption">
-                            <!-- caption -->
-                            <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                        </div>
-                    </div>
-                    <!-- venue details -->
-                </div>
-                <!-- /.venue box start-->
-                <div class="col-md-3 vendor-box">
-                    <!-- venue box start-->
-                    <div class="vendor-image">
-                        <!-- venue pic -->
-                        <a href="#"><img src="{{ url('assets') }}/images/vendor-5.jpg" alt="wedding venue" class="img-responsive"></a>
-                        <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
-                    </div>
-                    <!-- /.venue pic -->
-                    <div class="vendor-detail">
-                        <!-- venue details -->
-                        <div class="caption">
-                            <!-- caption -->
-                            <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                        </div>
-                    </div>
-                    <!-- venue details -->
-                </div>
-                <!-- /.venue box start-->
-                <div class="col-md-3 vendor-box">
-                    <!-- venue box start-->
-                    <div class="vendor-image">
-                        <!-- venue pic -->
-                        <a href="#"><img src="{{ url('assets') }}/images/vendor-6.jpg" alt="wedding venue" class="img-responsive"></a>
-                        <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
-                    </div>
-                    <!-- /.venue pic -->
-                    <div class="vendor-detail">
-                        <!-- venue details -->
-                        <div class="caption">
-                            <!-- caption -->
-                            <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                        </div>
-                    </div>
-                    <!-- venue details -->
-                </div>
-                <!-- /.venue box start-->
-                <div class="col-md-3 vendor-box">
-                    <!-- venue box start-->
-                    <div class="vendor-image">
-                        <!-- venue pic -->
-                        <a href="#"><img src="{{ url('assets') }}/images/vendor-7.jpg" alt="wedding venue" class="img-responsive"></a>
-                        <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
-                    </div>
-                    <!-- /.venue pic -->
-                    <div class="vendor-detail">
-                        <!-- venue details -->
-                        <div class="caption">
-                            <!-- caption -->
-                            <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                        </div>
-                    </div>
-                    <!-- venue details -->
-                </div>
-                <!-- /.venue box start-->
-                <div class="col-md-3 vendor-box">
-                    <!-- venue box start-->
-                    <div class="vendor-image">
-                        <!-- venue pic -->
-                        <a href="#"><img src="{{ url('assets') }}/images/vendor-8.jpg" alt="wedding venue" class="img-responsive"></a>
-                        <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
-                    </div>
-                    <!-- /.venue pic -->
-                    <div class="vendor-detail">
-                        <!-- venue details -->
-                        <div class="caption">
-                            <!-- caption -->
-                            <h2><a href="#" class="title">Venue Vendor Title</a></h2>
-                        </div>
-                    </div>
-                    <!-- venue details -->
-                </div>
-                <!-- /.venue box start-->
+                @endforeach
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12 tp-pagination">
                     <ul class="pagination">
                         <li>
@@ -196,7 +71,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 @endsection

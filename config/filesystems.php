@@ -61,6 +61,10 @@ return [
             'region' => 'your-region',
             'bucket' => 'your-bucket',
         ],
+        'images' => [
+            'driver' => 'local',
+            'root'   => base_path('images'), // previously storage_path();
+        ],
 
     ],
 
