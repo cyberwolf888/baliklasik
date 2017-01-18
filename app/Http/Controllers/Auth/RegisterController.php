@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Member;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -51,6 +52,8 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'no_hp' => 'required|max:255|alpha_num|min:6',
+            'alamat' => 'required|max:255'
         ]);
     }
 
@@ -62,10 +65,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $member = new Member();
+        $user = new User();
+
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+        $user->status = 1;
+        $user->type = 2;
+        $user->save();
+        $user->attachRole(2);
+
+        $member->user_id = $user->id;
+        $member->nama = $data['name'];
+        $member->no_hp = $data['no_hp'];
+        $member->alamat = $data['alamat'];
+        $member->save();
+
+        return $user;
     }
 }

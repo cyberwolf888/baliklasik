@@ -190,6 +190,15 @@
                                         <li><a  class="withripple" href="{{ route('admin.user.admin.manage') }}">Admin</a></li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a  class="withripple" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        <span class="icon"><i class="material-icons">code</i></span>
+                                        <span>Logout</span>
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </a>
+                                </li>
                                 <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">code</i></span><span>Angular (coming soon!)</span></a></li>
                                 <li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">flash_on</i></span><span>Layout</span></a>
                                     <ul class="acc-menu">

@@ -30,6 +30,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function member()
+    {
+        return $this->hasOne('App\Models\Member', 'user_id');
+    }
+
     public function getStatus()
     {
         $status = ['1' => 'Active', '0' => 'Non Active'];

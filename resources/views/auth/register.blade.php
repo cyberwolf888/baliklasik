@@ -62,6 +62,26 @@
                                 @endif
                             </div>
                             <!-- Text input-->
+                            <div class="form-group{{ $errors->has('no_hp') ? ' has-error' : '' }}">
+                                <label class="control-label" for="first">Your Phone Number <span class="required">*</span></label>
+                                <input id="no_hp" name="no_hp" type="text" placeholder="Your Phone Number" class="form-control input-md" value="{{ old('no_hp') }}" required autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('no_hp') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group{{ $errors->has('alamat') ? ' has-error' : '' }}">
+                                <label class="control-label" for="first">Your Address <span class="required">*</span></label>
+                                <input id="alamat" name="alamat" type="text" placeholder="Your Address" class="form-control input-md" value="{{ old('alamat') }}" required autofocus>
+                                @if ($errors->has('alamat'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('alamat') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- Text input-->
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label class=" control-label" for="password">Password <span class="required">*</span></label>
                                 <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required>

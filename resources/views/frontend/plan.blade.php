@@ -48,7 +48,7 @@
                         <h2 class="price-title">{{ $paket->nama }}</h2>
                         <h1 class="price-plan"><span class="dollor-sign">IDR</span> {{ number_format($paket->harga,0,',','.') }}</h1>
                         <p>{{ $paket->deskripsi }}</p>
-                        <a href="#" class="btn btn-default btn-sm">Select Plan</a> </div>
+                        <a href="{{ route('transaction',$paket->id) }}" class="btn btn-default btn-sm">Select Plan</a> </div>
                     <ul class="check-circle list-group">
                         @foreach($paket->detail as $detail)
                             <li class="list-group-item">{{ $detail->value }}</li>
