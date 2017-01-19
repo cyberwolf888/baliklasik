@@ -75,6 +75,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin'], 'as'=>'admin'
 });
 
 // Route master
-Route::group(['prefix' => 'member', 'middleware' => ['role:member'], 'as'=>'admin'], function() {
-    Route::get('/', 'Member\DashboardController@index');
+Route::group(['prefix' => 'member', 'middleware' => ['role:member'], 'as'=>'member'], function() {
+    Route::get('/', 'Member\DashboardController@index')->name('.dashboard');
+
+    Route::group(['prefix' => 'wedding', 'as'=>'.transaction'], function() {
+        Route::get('/', 'Member\TransactionController@index')->name('.manage');
+    });
+
+    Route::group(['prefix' => 'profile', 'as'=>'.profile'], function() {
+        Route::get('/', 'Member\ProfileController@index')->name('.manage');
+        Route::post('/personal', 'Member\ProfileController@personal')->name('.personal');
+        Route::post('/password', 'Member\ProfileController@password')->name('.password');
+    });
 });
