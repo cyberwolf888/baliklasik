@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 18 Jan 2017 pada 06.56
+-- Generation Time: 22 Jan 2017 pada 07.50
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -46,6 +46,28 @@ INSERT INTO `gallery` (`id`, `image`, `title`, `deskripsi`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `items`
+--
+
+CREATE TABLE `items` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `harga` int(11) DEFAULT NULL,
+  `stauan` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `items`
+--
+
+INSERT INTO `items` (`id`, `nama`, `harga`, `stauan`, `created_at`, `updated_at`) VALUES
+(1, 'Kursi', 3000, 'unit', '2017-01-22 06:48:47', '2017-01-22 06:48:48');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `member`
 --
 
@@ -65,7 +87,7 @@ CREATE TABLE `member` (
 
 INSERT INTO `member` (`id`, `user_id`, `nama`, `no_hp`, `alamat`, `created_at`, `updated_at`) VALUES
 (1, 3, 'Hendra Wijaya', '82247464193', 'Jalan Raya Pemogan No.18A\r\nkantor kamarmurah.com', '2017-01-16 06:25:45', '2017-01-16 06:25:45'),
-(2, 5, 'bedebah', '08573736374', 'Jalan Bedebah', '2017-01-17 20:50:21', '2017-01-17 20:50:21');
+(2, 5, 'bedebah awesome', '08573736374', 'Jalan Bedebah', '2017-01-17 20:50:21', '2017-01-18 20:38:37');
 
 -- --------------------------------------------------------
 
@@ -148,6 +170,32 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `payment`
+--
+
+CREATE TABLE `payment` (
+  `id` int(11) NOT NULL,
+  `transaksi_id` int(11) DEFAULT NULL,
+  `image` text,
+  `total_transfer` int(11) DEFAULT NULL,
+  `date_transfer` date DEFAULT NULL,
+  `bank` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `payment`
+--
+
+INSERT INTO `payment` (`id`, `transaksi_id`, `image`, `total_transfer`, `date_transfer`, `bank`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, '26fa7c7af9f103f8415c30c2c836c36f.jpg', 22000000, '2017-01-22', 1, 1, '2017-01-21 22:34:39', '2017-01-21 22:34:39'),
+(2, 1, '44b9bb63c052367e1fcc21986f8cea02.jpg', 20000000, '2017-01-24', 2, 1, '2017-01-21 22:42:01', '2017-01-21 22:42:01');
 
 -- --------------------------------------------------------
 
@@ -241,7 +289,8 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id`, `member_id`, `city`, `alamat`, `wedding_date`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Badung', 'Jalan Buduk', NULL, 1, '2017-01-17 21:46:21', '2017-01-17 21:46:21');
+(1, 2, 'Badung', 'Jalan Buduk', '2017-02-03', 1, '2017-01-17 21:46:21', '2017-01-17 21:46:21'),
+(2, 2, 'Badung', 'Jalan Nangka Utara No.1', '2017-02-08', 1, '2017-01-19 19:43:00', '2017-01-19 19:43:00');
 
 -- --------------------------------------------------------
 
@@ -265,7 +314,8 @@ CREATE TABLE `transaksi_detail` (
 --
 
 INSERT INTO `transaksi_detail` (`id`, `transaksi_id`, `item`, `qty`, `harga`, `total`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-17 21:46:21', '2017-01-17 21:46:21');
+(1, 1, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-17 21:46:21', '2017-01-17 21:46:21'),
+(2, 2, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-19 19:43:00', '2017-01-19 19:43:00');
 
 -- --------------------------------------------------------
 
@@ -291,10 +341,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `status`, `type`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@mail.com', '$2y$10$vNsWSJXaQ.9ZiJRLpzJiYO48pS1I3M630cMBu1x08TiubZGUj1DEq', 'Dr476476KnnQrhG9z7OBuXJO25JBWSQKUdbmpdsr3lJZbCyx5jHd7WPncUw4', 1, 1, '2016-12-09 00:00:14', '2017-01-17 19:57:19'),
-(2, 'Member', 'member@mail.com', '$2y$10$DkzQYvDDlZLNNkda4G0QTuOJChMTow7TpK8FqTIJGDtq.PGEbIMm2', 'bex1A1ZuRmYMv3xSyoZGTd0RHlJuBfwaGiyKOH0y4ynYjshVhhfT7ZfTx67k', 1, 2, '2017-01-06 03:30:12', '2017-01-06 05:21:41'),
-(3, 'Hendra Wijaya', 'wijaya.imd@gmail.com', '$2y$10$S8iWFOj53H.erWSjwvP7uO465LkRgEh1LQs1qwjFmqfbdCovBLLra', NULL, 1, 2, '2017-01-16 06:25:45', '2017-01-16 07:15:56'),
+(2, 'Member', 'member@mail.com', '$2y$10$DkzQYvDDlZLNNkda4G0QTuOJChMTow7TpK8FqTIJGDtq.PGEbIMm2', 'HyoV8STKygwH245vczFQyoWX9rceN3DO5150teg2Pji2LJz40fxf1VzMcTpi', 1, 2, '2017-01-06 03:30:12', '2017-01-18 19:20:49'),
+(3, 'Hendra Wijaya', 'wijaya.imd@gmail.com', '$2y$10$S8iWFOj53H.erWSjwvP7uO465LkRgEh1LQs1qwjFmqfbdCovBLLra', 'hguVdEUSjG35gjAM6ugh6IFvPckqaDJbOV0hLFHbv5Unypg8yeib2m1b3fPq', 1, 2, '2017-01-16 06:25:45', '2017-01-18 19:21:12'),
 (4, 'Admin Bedebah', 'admin2@mail.com', '$2y$10$GhrysuEvvYz8notT4e/Cz.6s9g.JpdIOFLjUD6m/4NVA4BKlItqMe', NULL, 0, 1, '2017-01-16 20:47:55', '2017-01-16 20:51:23'),
-(5, 'bedebah', 'bedebah@mail.com', '$2y$10$rSGnNMZMH5JT5f7iXk2JE.JJWGcVsnhcSi8rkIR5iVlj1pmuc.1ay', '6iA3hF8CyVBpS77ONiJURX4BaikolyEx3v38xDJh7kz4XZjMHTYqnyWrkQQR', 1, 2, '2017-01-17 20:50:21', '2017-01-17 20:52:19');
+(5, 'bedebah awesome', 'bedebah@mail.com', '$2y$10$B7W5KvwINS0OT9diTmXMAe0hvuGzAqk4ctHS/odU9ydl6..J5Na92', 'kwx5Y8Fo4gommxtYTdcCn7cpq3F2RnQT3fVz3fvilKsoQErYttze0tEB4xBu', 1, 2, '2017-01-17 20:50:21', '2017-01-18 20:44:32');
 
 --
 -- Indexes for dumped tables
@@ -304,6 +354,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `statu
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -336,6 +392,12 @@ ALTER TABLE `paket_detail`
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`),
   ADD KEY `password_resets_token_index` (`token`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `permissions`
@@ -394,6 +456,11 @@ ALTER TABLE `users`
 ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
@@ -414,6 +481,11 @@ ALTER TABLE `paket`
 ALTER TABLE `paket_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
@@ -427,12 +499,12 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --

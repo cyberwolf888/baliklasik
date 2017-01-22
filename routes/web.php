@@ -80,6 +80,8 @@ Route::group(['prefix' => 'member', 'middleware' => ['role:member'], 'as'=>'memb
 
     Route::group(['prefix' => 'wedding', 'as'=>'.transaction'], function() {
         Route::get('/', 'Member\TransactionController@index')->name('.manage');
+        Route::get('/payment/{id}', 'Member\TransactionController@create_payment')->name('.payment');
+        Route::post('/payment/{id}', 'Member\TransactionController@store_payment')->name('.store_payment');
     });
 
     Route::group(['prefix' => 'profile', 'as'=>'.profile'], function() {

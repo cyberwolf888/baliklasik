@@ -27,6 +27,7 @@ class TransactionController extends Controller
         $paket = Paket::findOrFail($id);
         $transksi = new Transaksi();
         $transksi->member_id = Auth::user()->member->id;
+        $transksi->wedding_date = date('Y-m-d', strtotime($request->wedding_date));
         $transksi->city = $request->city;
         $transksi->alamat = $request->alamat;
         $transksi->status = 1;

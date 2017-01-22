@@ -46,7 +46,7 @@
                             <div class="form-group{{ $errors->has('wedding_date') ? ' has-error' : '' }}">
                                 <label class="control-label" for="weddingdate">Wedding Date<span class="required">*</span></label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="weddingdate" placeholder="Wedding Date">
+                                    <input type="text" name="wedding_date" class="form-control" id="weddingdate" placeholder="Wedding Date">
                                     <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span>
                                 </div>
                                 @if ($errors->has('wedding_date'))
@@ -78,7 +78,7 @@
                             <!-- Text input-->
                             <div class="form-group{{ $errors->has('alamat') ? ' has-error' : '' }}">
                                 <label class="control-label" for="alamat">Veneu Address <span class="required">*</span></label>
-                                <input id="alamat" name="alamat" type="text" placeholder="Your Phone Number" class="form-control input-md" value="{{ old('no_hp') }}" required>
+                                <input id="alamat" name="alamat" type="text" placeholder="Veneu Address" class="form-control input-md" value="{{ old('no_hp') }}" required>
                                 @if ($errors->has('alamat'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('alamat') }}</strong>

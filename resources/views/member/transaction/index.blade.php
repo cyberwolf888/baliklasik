@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="page-title">
-                                    <h1>My Budget <small>Create your wedding to do and start planning.</small></h1>
+                                    <h1>My Wedding <small>Create your wedding to do and start planning.</small></h1>
                                 </div>
                             </div>
                         </div>
@@ -52,418 +52,85 @@
                 <div class="list-group">
                     <div href="#" class="list-group-item active">
                         <div class="row">
-                            <div class="col-md-4"> Budget Category </div>
-                            <div class="col-md-2">Estimated Cost</div>
-                            <div class="col-md-2">Actual</div>
-                            <div class="col-md-1">Paid</div>
-                            <div class="col-md-1">Due</div>
-                            <div class="col-md-2">Edit / Delete</div>
+                            <div class="col-md-3"> Package </div>
+                            <div class="col-md-2">Wedding Date</div>
+                            <div class="col-md-3">Location</div>
+                            <div class="col-md-2">Total</div>
+                            <div class="col-md-1">Status</div>
                         </div>
                     </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4"><a class="#" data-toggle="collapse" href="#Ceremony" aria-expanded="false" aria-controls="Ceremony"> Ceremony </a> </div>
-                            <div class="col-md-2">$12000</div>
-                            <div class="col-md-2">$8000</div>
-                            <div class="col-md-1">$6000</div>
-                            <div class="col-md-1">$2000</div>
-                            <div class="col-md-2"><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></div>
-                            <div class="collapse col-md-12 item-title" id="Ceremony">
-                                <div class="row">
-                                    <div class="table-responsive">
+                    @foreach($model as $row)
+                        <div class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3"><a class="#" data-toggle="collapse" href="#Ceremony{{ $row->id }}" aria-expanded="false" aria-controls="Ceremony"> {{ $row->getLabel() }} </a> </div>
+                                <div class="col-md-2">{{ date('d F Y',strtotime($row->wedding_date)) }}</div>
+                                <div class="col-md-3">{{ $row->alamat.', '.$row->city }}</div>
+                                <div class="col-md-2">{{ number_format($row->getTotal(),0,',','.') }}</div>
+                                <div class="col-md-1">{{ $row->getStatus() }}</div>
+                                <div class="collapse col-md-12 item-title" id="Ceremony{{ $row->id }}">
+                                    <div class="row">
+                                        <div class="table-responsive">
+                                            <div class="col-md-12"><h3>Detail Items</h3></div>
+                                            <table class="table ceremony">
+                                                <thead>
+                                                <tr>
+                                                    <th class="col-md-4">Item</th>
+                                                    <th class="col-md-2">Price</th>
+                                                    <th class="col-md-2">Qty</th>
+                                                    <th class="col-md-1">Total</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($row->detail as $detail)
+                                                    <tr>
+                                                        <th scope="row"> {{ $detail->item }}</th>
+                                                        <td>Rp {{ number_format($detail->harga,0,',','.') }}</td>
+                                                        <td>{{ $detail->qty }}</td>
+                                                        <td>Rp {{ number_format($detail->total,0,',','.') }}</td>
+                                                    </tr>
+                                                @endforeach
+                                                <tr>
+                                                    <th scope="row" colspan="3"> <center><b>Total</b></center></th>
+                                                    <td>Rp {{ number_format($row->getTotal(),0,',','.') }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" colspan="3"> <center><b>Total Paid</b></center></th>
+                                                    <td>Rp {{ number_format($row->getTotal(),0,',','.') }}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <a href="#" title="add new items" class="btn btn-primary add-item">+ Add Item</a> </div><br><br>
+
+                                        <div class="col-md-12"><h3>Detail Payment</h3></div>
                                         <table class="table ceremony">
                                             <thead>
                                             <tr>
-                                                <th class="col-md-4">Ceremony Item</th>
-                                                <th class="col-md-2">Estimated</th>
-                                                <th class="col-md-2">Actual</th>
-                                                <th class="col-md-1">Paid</th>
-                                                <th class="col-md-1">Due</th>
-                                                <th class="col-md-2">Edit / Delete</th>
+                                                <th class="col-md-4">Image</th>
+                                                <th class="col-md-2">Total Transfer</th>
+                                                <th class="col-md-2">Transfer Date</th>
+                                                <th class="col-md-1">Bank</th>
+                                                <th class="col-md-1">Status</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th scope="row"> Officiate Fee / Donation</th>
-                                                <td>1200</td>
-                                                <td>1000</td>
-                                                <td>800</td>
-                                                <td>400</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Bridesmaid Dresses</th>
-                                                <td>1200</td>
-                                                <td>1000</td>
-                                                <td>800</td>
-                                                <td>400</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Program for Church</th>
-                                                <td>1200</td>
-                                                <td>1000</td>
-                                                <td>800</td>
-                                                <td>400</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Ceremony Location Fee</th>
-                                                <td>1200</td>
-                                                <td>1000</td>
-                                                <td>800</td>
-                                                <td>400</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Wedding Directory</th>
-                                                <td>1200</td>
-                                                <td>1000</td>
-                                                <td>800</td>
-                                                <td>400</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
+                                            @foreach($row->payment as $payment)
+                                                <tr>
+                                                    <th scope="row"> <img src="{{ url('images/payment/'.$payment->image) }}" width="200" height="150"> </th>
+                                                    <td>Rp {{ number_format($payment->total_transfer,0,',','.') }}</td>
+                                                    <td>{{ date('d F Y',strtotime($payment->date_transfer)) }}</td>
+                                                    <td>{{ $payment->getBank() }}</td>
+                                                    <td>{{ $payment->getStatus() }}</td>
+                                                </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
-                                        <a href="#" title="add new item" class="btn btn-primary add-item">+ Add New</a> </div>
+                                        <a href="{{ route('member.transaction.payment',$row->id) }}" title="add new payment" class="btn btn-primary add-item">+ Add Payment</a> </div><br><br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4"><a class="#" role="button" data-toggle="collapse" href="#Reception" aria-expanded="false" aria-controls="Reception"> Reception </a> </div>
-                            <div class="col-md-2">$12000</div>
-                            <div class="col-md-2">$8000</div>
-                            <div class="col-md-1">$6000</div>
-                            <div class="col-md-1">$2000</div>
-                            <div class="col-md-2"><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></div>
-                            <div class="collapse col-md-12 item-title" id="Reception">
-                                <div class="row">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered receptions">
-                                            <thead>
-                                            <tr>
-                                                <th class="col-md-4">Reception Item</th>
-                                                <th class="col-md-2">Estimated</th>
-                                                <th class="col-md-2">Actual</th>
-                                                <th class="col-md-1">Paid</th>
-                                                <th class="col-md-1">Due</th>
-                                                <th class="col-md-2">Edit / Delete</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <th scope="row">Plates, Cups, Silverware</th>
-                                                <td>$1000</td>
-                                                <td>$600</td>
-                                                <td>$400</td>
-                                                <td>$200</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Gratuity of Caterer</th>
-                                                <td>$3000</td>
-                                                <td>$1500</td>
-                                                <td>$1000</td>
-                                                <td>$500</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Rental Items of Caterer</th>
-                                                <td>$1000</td>
-                                                <td>$600</td>
-                                                <td>$400</td>
-                                                <td>$200</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Tent and Table Rental</th>
-                                                <td>$3000</td>
-                                                <td>$1500</td>
-                                                <td>$1000</td>
-                                                <td>$500</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Favors for Reception</th>
-                                                <td>$1000</td>
-                                                <td>$600</td>
-                                                <td>$400</td>
-                                                <td>$200</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Wedding/Grooms Cake</th>
-                                                <td>$3000</td>
-                                                <td>$1500</td>
-                                                <td>$1000</td>
-                                                <td>$500</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Guest Books</th>
-                                                <td>$1000</td>
-                                                <td>$600</td>
-                                                <td>$400</td>
-                                                <td>$200</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Music at Reception</th>
-                                                <td>$3000</td>
-                                                <td>$1500</td>
-                                                <td>$1000</td>
-                                                <td>$500</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Reception Place Rental</th>
-                                                <td>$1000</td>
-                                                <td>$600</td>
-                                                <td>$400</td>
-                                                <td>$200</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <a href="#" title="add new item" class="btn btn-primary add-author">Add New</a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4"><a class="#" role="button" data-toggle="collapse" href="#GroomExpenses" aria-expanded="false" aria-controls="GroomExpenses"> Groom's Expenses </a> </div>
-                            <div class="col-md-2">$12000</div>
-                            <div class="col-md-2">$8000</div>
-                            <div class="col-md-1">$6000</div>
-                            <div class="col-md-1">$2000</div>
-                            <div class="col-md-2"><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></div>
-                            <div class="collapse col-md-12 item-title" id="GroomExpenses">
-                                <div class="row">
-                                    <div class="table-responsive">
-                                        <table class="table receptions">
-                                            <thead>
-                                            <tr>
-                                                <th class="col-md-4">Groom Expenses Item</th>
-                                                <th class="col-md-2">Estimated</th>
-                                                <th class="col-md-2">Actual</th>
-                                                <th class="col-md-1">Paid</th>
-                                                <th class="col-md-1">Due</th>
-                                                <th class="col-md-2">Edit / Delete</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <th scope="row">Groomsmen Gifts</th>
-                                                <td>$400</td>
-                                                <td>$350</td>
-                                                <td>300</td>
-                                                <td>50</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Rings</th>
-                                                <td>$4000</td>
-                                                <td>$3500</td>
-                                                <td>3000</td>
-                                                <td>500</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Grooms' Accessories</th>
-                                                <td>$4000</td>
-                                                <td>$3500</td>
-                                                <td>3000</td>
-                                                <td>500</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <a href="#" title="" class="btn btn-primary add-author">Add New</a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4"><a class="#" role="button" data-toggle="collapse" href="#FloristFlowers" aria-expanded="false" aria-controls="FloristFlowers">Florist/Flowers </a> </div>
-                            <div class="col-md-2">$12000</div>
-                            <div class="col-md-2">$8000</div>
-                            <div class="col-md-1">$6000</div>
-                            <div class="col-md-1">$2000</div>
-                            <div class="col-md-2"><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></div>
-                            <div class="collapse col-md-12 item-title" id="FloristFlowers">
-                                <div class="row">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered receptions">
-                                            <thead>
-                                            <tr>
-                                                <th class="col-md-4">FloristFlowers Item</th>
-                                                <th class="col-md-2">Estimated</th>
-                                                <th class="col-md-2">Actual</th>
-                                                <th class="col-md-1">Paid</th>
-                                                <th class="col-md-1">Due</th>
-                                                <th class="col-md-2">Edit / Delete</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <th scope="row">Groomsmen's Boutonnieres</th>
-                                                <td>$40</td>
-                                                <td>$35</td>
-                                                <td>30</td>
-                                                <td>5</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Flowers for Reception</th>
-                                                <td>$40</td>
-                                                <td>$35</td>
-                                                <td>30</td>
-                                                <td>5</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Flower Girl's Flowers</th>
-                                                <td>$40</td>
-                                                <td>$35</td>
-                                                <td>30</td>
-                                                <td>5</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Bridesmaid's Bouquets</th>
-                                                <td>$40</td>
-                                                <td>$35</td>
-                                                <td>30</td>
-                                                <td>5</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Bride's Bouquet</th>
-                                                <td>$40</td>
-                                                <td>$35</td>
-                                                <td>30</td>
-                                                <td>5</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Flowers for Church</th>
-                                                <td>$40</td>
-                                                <td>$35</td>
-                                                <td>30</td>
-                                                <td>5</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <a href="#" title="" class="btn btn-primary add-author">Add New</a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4"><a class="#" role="button" data-toggle="collapse" href="#InvitationsExpenses" aria-expanded="false" aria-controls="InvitationsExpenses">Invitations Expenses </a> </div>
-                            <div class="col-md-2">$12000</div>
-                            <div class="col-md-2">$8000</div>
-                            <div class="col-md-1">$6000</div>
-                            <div class="col-md-1">$2000</div>
-                            <div class="col-md-2"><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></div>
-                            <div class="collapse col-md-12 item-title" id="InvitationsExpenses">
-                                <div class="row">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered receptions">
-                                            <thead>
-                                            <tr>
-                                                <th class="col-md-4">Invitations Expenses Item</th>
-                                                <th class="col-md-2">Estimated</th>
-                                                <th class="col-md-2">Actual</th>
-                                                <th class="col-md-1">Paid</th>
-                                                <th class="col-md-1">Due</th>
-                                                <th class="col-md-2">Edit / Delete</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <th scope="row">Invitations</th>
-                                                <td>$120</td>
-                                                <td>$100</td>
-                                                <td>80</td>
-                                                <td>20</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Postage</th>
-                                                <td>$120</td>
-                                                <td>$100</td>
-                                                <td>80</td>
-                                                <td>20</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Thank You Notes</th>
-                                                <td>$120</td>
-                                                <td>$100</td>
-                                                <td>80</td>
-                                                <td>20</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <a href="#" title="" class="btn btn-primary add-author">Add New</a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-4"><a class="#" role="button" data-toggle="collapse" href="#VideoPhotographyExpenses" aria-expanded="false" aria-controls="VideoPhotographyExpenses">Video/Photography Expenses </a> </div>
-                            <div class="col-md-2">$12000</div>
-                            <div class="col-md-2">$8000</div>
-                            <div class="col-md-1">$6000</div>
-                            <div class="col-md-1">$2000</div>
-                            <div class="col-md-2"><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></div>
-                            <div class="collapse col-md-12 item-title" id="VideoPhotographyExpenses">
-                                <div class="row">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered receptions">
-                                            <thead>
-                                            <tr>
-                                                <th class="col-md-4">Video-PhotographyExpenses Item</th>
-                                                <th class="col-md-2">Estimated</th>
-                                                <th class="col-md-2">Actual</th>
-                                                <th class="col-md-1">Paid</th>
-                                                <th class="col-md-1">Due</th>
-                                                <th class="col-md-2">Edit / Delete</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <th scope="row">Wedding Portrait</th>
-                                                <td>$120</td>
-                                                <td>$100</td>
-                                                <td>80</td>
-                                                <td>20</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Video</th>
-                                                <td>$120</td>
-                                                <td>$100</td>
-                                                <td>80</td>
-                                                <td>20</td>
-                                                <td><a href="#" class="btn-edit"><i class="fa fa-edit"></i></a><a href="#" class="btn-delete"><i class="fa fa-trash"></i></a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <a href="#" title="" class="btn btn-primary add-author">Add New</a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>

@@ -20,9 +20,25 @@ class Transaksi extends Model
         return $total;
     }
 
+    public function getStatus()
+    {
+        $status = ['1'=>'Waiting Payment','2'=>'Verifying Payment','3'=>'Paid','4'=>'Finish'];
+        return $status[$this->status];
+    }
+
+    public function getLabel()
+    {
+        $label = TransaksiDetail::where('transaksi_id',$this->id)->first()->item;
+        return $label;
+    }
+
     public function detail()
     {
         return $this->hasMany('App\Models\TransaksiDetail','transaksi_id');
+    }
+    public function payment()
+    {
+        return $this->hasMany('App\Models\Payment','transaksi_id');
     }
     public function member()
     {
