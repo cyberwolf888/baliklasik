@@ -82,6 +82,9 @@ Route::group(['prefix' => 'member', 'middleware' => ['role:member'], 'as'=>'memb
         Route::get('/', 'Member\TransactionController@index')->name('.manage');
         Route::get('/payment/{id}', 'Member\TransactionController@create_payment')->name('.payment');
         Route::post('/payment/{id}', 'Member\TransactionController@store_payment')->name('.store_payment');
+        Route::get('/item/{id}', 'Member\TransactionController@create_items')->name('.item');
+        Route::post('/item/{id}', 'Member\TransactionController@store_item')->name('.store_item');
+        Route::post('/item/{id}/getTotal', 'Member\TransactionController@getTotalItem')->name('.getTotalItem');
     });
 
     Route::group(['prefix' => 'profile', 'as'=>'.profile'], function() {

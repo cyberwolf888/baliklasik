@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 22 Jan 2017 pada 07.50
+-- Generation Time: 23 Jan 2017 pada 08.46
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -53,7 +53,7 @@ CREATE TABLE `items` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) DEFAULT NULL,
   `harga` int(11) DEFAULT NULL,
-  `stauan` varchar(100) DEFAULT NULL,
+  `satuan` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -62,7 +62,7 @@ CREATE TABLE `items` (
 -- Dumping data untuk tabel `items`
 --
 
-INSERT INTO `items` (`id`, `nama`, `harga`, `stauan`, `created_at`, `updated_at`) VALUES
+INSERT INTO `items` (`id`, `nama`, `harga`, `satuan`, `created_at`, `updated_at`) VALUES
 (1, 'Kursi', 3000, 'unit', '2017-01-22 06:48:47', '2017-01-22 06:48:48');
 
 -- --------------------------------------------------------
@@ -194,7 +194,7 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`id`, `transaksi_id`, `image`, `total_transfer`, `date_transfer`, `bank`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, '26fa7c7af9f103f8415c30c2c836c36f.jpg', 22000000, '2017-01-22', 1, 1, '2017-01-21 22:34:39', '2017-01-21 22:34:39'),
+(1, 1, '26fa7c7af9f103f8415c30c2c836c36f.jpg', 22000000, '2017-01-22', 1, 2, '2017-01-21 22:34:39', '2017-01-21 22:34:39'),
 (2, 1, '44b9bb63c052367e1fcc21986f8cea02.jpg', 20000000, '2017-01-24', 2, 1, '2017-01-21 22:42:01', '2017-01-21 22:42:01');
 
 -- --------------------------------------------------------
@@ -315,7 +315,8 @@ CREATE TABLE `transaksi_detail` (
 
 INSERT INTO `transaksi_detail` (`id`, `transaksi_id`, `item`, `qty`, `harga`, `total`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-17 21:46:21', '2017-01-17 21:46:21'),
-(2, 2, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-19 19:43:00', '2017-01-19 19:43:00');
+(2, 2, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-19 19:43:00', '2017-01-19 19:43:00'),
+(3, 1, 'Kursi', 200, 3000, 600000, '2017-01-22 22:36:56', '2017-01-22 22:36:56');
 
 -- --------------------------------------------------------
 
@@ -344,7 +345,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `statu
 (2, 'Member', 'member@mail.com', '$2y$10$DkzQYvDDlZLNNkda4G0QTuOJChMTow7TpK8FqTIJGDtq.PGEbIMm2', 'HyoV8STKygwH245vczFQyoWX9rceN3DO5150teg2Pji2LJz40fxf1VzMcTpi', 1, 2, '2017-01-06 03:30:12', '2017-01-18 19:20:49'),
 (3, 'Hendra Wijaya', 'wijaya.imd@gmail.com', '$2y$10$S8iWFOj53H.erWSjwvP7uO465LkRgEh1LQs1qwjFmqfbdCovBLLra', 'hguVdEUSjG35gjAM6ugh6IFvPckqaDJbOV0hLFHbv5Unypg8yeib2m1b3fPq', 1, 2, '2017-01-16 06:25:45', '2017-01-18 19:21:12'),
 (4, 'Admin Bedebah', 'admin2@mail.com', '$2y$10$GhrysuEvvYz8notT4e/Cz.6s9g.JpdIOFLjUD6m/4NVA4BKlItqMe', NULL, 0, 1, '2017-01-16 20:47:55', '2017-01-16 20:51:23'),
-(5, 'bedebah awesome', 'bedebah@mail.com', '$2y$10$B7W5KvwINS0OT9diTmXMAe0hvuGzAqk4ctHS/odU9ydl6..J5Na92', 'kwx5Y8Fo4gommxtYTdcCn7cpq3F2RnQT3fVz3fvilKsoQErYttze0tEB4xBu', 1, 2, '2017-01-17 20:50:21', '2017-01-18 20:44:32');
+(5, 'bedebah awesome', 'bedebah@mail.com', '$2y$10$B7W5KvwINS0OT9diTmXMAe0hvuGzAqk4ctHS/odU9ydl6..J5Na92', 'z3LysPsQEv3NxBiaTblceHkmlt9Y7ocWRogGmzOcAKWDwkt5LertKwQr0Hv2', 1, 2, '2017-01-17 20:50:21', '2017-01-22 23:44:36');
 
 --
 -- Indexes for dumped tables
@@ -504,7 +505,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --

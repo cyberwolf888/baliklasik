@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/owl.theme.css">
 <link rel="stylesheet" type="text/css" href="{{ url('assets') }}/css/owl.transitions.css">
+<link rel="stylesheet" type="text/css" href="{{ url('assets') }}/plugins/fancyapps-fancyBox/source/jquery.fancybox.css?v=2.1.5">
 @endpush
 
 @section('content')
@@ -128,7 +129,7 @@
                         <div class="vendor-box">
                             <div class="vendor-image">
                                 <!-- vendor pic -->
-                                <a href="#"><img src="{{ url('assets') }}/images/vendor-{{ $paket->id }}.jpg" alt="wedding vendor" class="img-responsive"></a>
+                                <a href="{{ route('plan') }}"><img src="{{ url('assets') }}/images/vendor-{{ $paket->id }}.jpg" alt="wedding vendor" class="img-responsive"></a>
                                 <!-- <div class="feature-label"></div> -->
                                 <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
                             </div>
@@ -170,7 +171,7 @@
                     <div class="col-md-4 location-block">
                         <!-- location block -->
                         <div class="vendor-image">
-                            <a href="#"><img src="{{ url('images/'.$gallery->image) }}" alt=""  width="360" height="220"></a> <a href="#" class="venue-lable"></a>
+                            <a href="{{ url('images/'.$gallery->image) }}" class="fancybox-effects-d" title="{{ $gallery->deskripsi }}"><img src="{{ url('images/'.$gallery->image) }}" alt=""  width="360" height="220"></a> <a href="#" class="venue-lable"></a>
                         </div>
                     </div>
                 @endforeach
@@ -187,7 +188,26 @@
 <script type="text/javascript" src="{{ url('assets') }}/js/slider.js"></script>
 <!-- testimonial -->
 <script type="text/javascript" src="{{ url('assets') }}/js/testimonial.js"></script>
+
+<script src="{{ url('assets') }}/plugins/fancyapps-fancyBox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 @endpush
 
 @push('scripts')
+<script>
+    $(".fancybox-effects-d").fancybox({
+        padding: 0,
+
+        openEffect : 'elastic',
+        openSpeed  : 150,
+
+        closeEffect : 'elastic',
+        closeSpeed  : 150,
+
+        closeClick : true,
+
+        helpers : {
+            overlay : null
+        }
+    });
+</script>
 @endpush

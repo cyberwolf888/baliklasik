@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @push('plugin_css')
+<link rel="stylesheet" type="text/css" href="{{ url('assets') }}/plugins/fancyapps-fancyBox/source/jquery.fancybox.css?v=2.1.5">
 @endpush
 
 @section('content')
@@ -40,7 +41,7 @@
                         <!-- venue box start-->
                         <div class="vendor-image">
                             <!-- venue pic -->
-                            <a href="#"><img src="{{ url('images/'.$gallery->image) }}" alt="{{ $gallery->title }}" class="img-responsive"></a>
+                            <a href="{{ url('images/'.$gallery->image) }}" class="fancybox-effects-d" title="{{ $gallery->deskripsi }}"><img src="{{ url('images/'.$gallery->image) }}" alt="{{ $gallery->title }}" class="img-responsive"></a>
                             <div class="favourite-bg"><a href="#" class=""><i class="fa fa-heart"></i></a></div>
                         </div>
                         <!-- /.venue pic -->
@@ -77,7 +78,25 @@
 @endsection
 
 @push('plugin_scripts')
+<script src="{{ url('assets') }}/plugins/fancyapps-fancyBox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 @endpush
 
 @push('scripts')
+<script>
+    $(".fancybox-effects-d").fancybox({
+        padding: 0,
+
+        openEffect : 'elastic',
+        openSpeed  : 150,
+
+        closeEffect : 'elastic',
+        closeSpeed  : 150,
+
+        closeClick : true,
+
+        helpers : {
+            overlay : null
+        }
+    });
+</script>
 @endpush

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Models\Items;
 use App\Models\Payment;
 use App\Models\Transaksi;
+use App\Models\TransaksiDetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -50,48 +52,36 @@ class TransactionController extends Controller
         return redirect()->route('member.transaction.manage');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function create_items($id)
     {
-        //
+        return view('member/transaction/item',[
+            'id'=>$id
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function store_item(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'item' => 'required|numeric',
+            'qty' => 'required|numeric'
+        ]);
+
+        $item = Items::findOrFail($request->item);
+        $detail = new TransaksiDetail();
+        $detail->transaksi_id = $id;
+        $detail->item = $item->nama;
+        $detail->qty = $request->qty;
+        $detail->harga = $item->harga;
+        $detail->total = $detail->qty*$detail->harga;
+        $detail->save();
+
+        return redirect()->route('member.transaction.manage');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function getTotalItem(Request $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $item = Items::findOrFail($request->item);
+        $total = number_format($item->harga * $request->qty,0,',','.');
+        return response()->json(['total'=>$total]);
     }
 }

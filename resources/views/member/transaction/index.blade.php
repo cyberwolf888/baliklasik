@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @push('plugin_css')
+<link rel="stylesheet" type="text/css" href="{{ url('assets') }}/plugins/fancyapps-fancyBox/source/jquery.fancybox.css?v=2.1.5">
 @endpush
 
 @section('content')
@@ -95,11 +96,11 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" colspan="3"> <center><b>Total Paid</b></center></th>
-                                                    <td>Rp {{ number_format($row->getTotal(),0,',','.') }}</td>
+                                                    <td>Rp {{ number_format($row->getTotalPaid(),0,',','.') }}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
-                                            <a href="#" title="add new items" class="btn btn-primary add-item">+ Add Item</a> </div><br><br>
+                                            <a href="{{ route('member.transaction.item',$row->id) }}" title="add new items" class="btn btn-primary add-item">+ Add Item</a> </div><br><br>
 
                                         <div class="col-md-12"><h3>Detail Payment</h3></div>
                                         <table class="table ceremony">
@@ -115,7 +116,7 @@
                                             <tbody>
                                             @foreach($row->payment as $payment)
                                                 <tr>
-                                                    <th scope="row"> <img src="{{ url('images/payment/'.$payment->image) }}" width="200" height="150"> </th>
+                                                    <th scope="row"> <a class="fancybox-effects-d" href="{{ url('images/payment/'.$payment->image) }}" ><img src="{{ url('images/payment/'.$payment->image) }}" width="200" height="150"></a></th>
                                                     <td>Rp {{ number_format($payment->total_transfer,0,',','.') }}</td>
                                                     <td>{{ date('d F Y',strtotime($payment->date_transfer)) }}</td>
                                                     <td>{{ $payment->getBank() }}</td>
@@ -138,7 +139,25 @@
 @endsection
 
 @push('plugin_scripts')
+<script src="{{ url('assets') }}/plugins/fancyapps-fancyBox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 @endpush
 
 @push('scripts')
+<script>
+    $(".fancybox-effects-d").fancybox({
+        padding: 0,
+
+        openEffect : 'elastic',
+        openSpeed  : 150,
+
+        closeEffect : 'elastic',
+        closeSpeed  : 150,
+
+        closeClick : true,
+
+        helpers : {
+            overlay : null
+        }
+    });
+</script>
 @endpush

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from jituchauhan.com/wedding/wedding-new/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Dec 2016 13:33:59 GMT -->
 <head>
     <meta charset="utf-8">
     <!-- CSRF Token -->

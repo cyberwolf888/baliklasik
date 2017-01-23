@@ -56,33 +56,33 @@
                 <div class="col-md-4">
                     <!-- wedding days block -->
                     <div class="bg-white pinside40 mb30">
-                        <h4>Wedding days to go</h4>
+                        <h4>Total Wedding</h4>
                         <div class="wd-days-count mb40 mt40">
-                            <h1 class="title-number">540</h1>
+                            <h1 class="title-number">{{ $total_wedding }}</h1>
                         </div>
-                        <div>SAT, 31 MARCH 2018</div>
+                        <!-- <div>SAT, 31 MARCH 2018</div> -->
                     </div>
                 </div>
                 <!-- wedding days block -->
                 <div class="col-md-4">
                     <!-- wedding budget block -->
                     <div class="bg-white pinside40 mb30">
-                        <h4>Your Budget</h4>
+                        <h4>Total Budget</h4>
                         <div class="wd-days-count mb40 mt40">
-                            <h1 class="title-number">$20,000</h1>
+                            <h1 class="title-number">{{ number_format($total,0,',','.') }}</h1>
                         </div>
-                        <div>Spent $1200 out of $20,000 so far.</div>
+                        <!-- <div>Spent $1200 out of $20,000 so far.</div> -->
                     </div>
                 </div>
                 <!-- wedding budget block -->
                 <div class="col-md-4">
                     <!-- wedding budget block -->
                     <div class="bg-white pinside40 mb30">
-                        <h4>Checklist - todos</h4>
+                        <h4>Total Paid</h4>
                         <div class="wd-days-count mb40 mt40">
-                            <h1 class="title-number">78</h1>
+                            <h1 class="title-number">{{ number_format($total_paid,0,',','.') }}</h1>
                         </div>
-                        <div>Completed 3 of 78 checklist items</div>
+                        <!-- <div>Completed 3 of 78 checklist items</div> -->
                     </div>
                 </div>
             </div>

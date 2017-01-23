@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from paper.kaijuthemes.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Jan 2017 06:36:12 GMT -->
 <head>
     <meta charset="utf-8">
     <title>Bali Klasik - Admin</title>

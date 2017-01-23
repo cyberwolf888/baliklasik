@@ -20,6 +20,12 @@ class Transaksi extends Model
         return $total;
     }
 
+    public function getTotalPaid()
+    {
+        $total = Payment::where('transaksi_id',$this->id)->where('status',Payment::STATUS_APPROVED)->sum('total_transfer');
+        return $total;
+    }
+
     public function getStatus()
     {
         $status = ['1'=>'Waiting Payment','2'=>'Verifying Payment','3'=>'Paid','4'=>'Finish'];
