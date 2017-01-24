@@ -181,6 +181,8 @@
                                 <li class="nav-separator"><span>Navigation</span></li>
                                 <li><a  class="withripple" href="{{ url('admin') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
                                 <li><a  class="withripple" href="{{ route('admin.paket.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Wedding Package</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.item.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Extra Item</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.transaction.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Transaction</span></a></li>
                                 <li><a  class="withripple" href="{{ route('admin.gallery.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Gallery</span></a></li>
                                 <li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">flash_on</i></span><span>Users</span></a>
                                     <ul class="acc-menu">
@@ -188,6 +190,7 @@
                                         <li><a  class="withripple" href="{{ route('admin.user.admin.manage') }}">Admin</a></li>
                                     </ul>
                                 </li>
+                                <li><a  class="withripple" href="{{ route('admin.gallery.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Report</span></a></li>
                                 <li>
                                     <a  class="withripple" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         <span class="icon"><i class="material-icons">code</i></span>
@@ -196,17 +199,6 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </a>
-                                </li>
-                                <li><a  class="withripple" href="#"><span class="icon"><i class="material-icons">code</i></span><span>Angular (coming soon!)</span></a></li>
-                                <li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">flash_on</i></span><span>Layout</span></a>
-                                    <ul class="acc-menu">
-                                        <li><a  class="withripple" href="layout-grids.html">Grid Scaffolding</a></li>
-                                        <li><a  class="withripple" href="layout-static-leftbar.html">Static Sidebar</a></li>
-                                        <li><a  class="withripple" href="layout-sidebar-scroll.html">Scroll Sidebar</a></li>
-                                        <li><a  class="withripple" href="layout-horizontal.html">Horizontal Nav V1</a></li>
-                                        <li><a  class="withripple" href="layout-horizontal-large.html">Horizontal Nav V2</a></li>
-                                        <li><a  class="withripple" href="layout-boxed.html">Boxed</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </nav>

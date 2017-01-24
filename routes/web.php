@@ -39,6 +39,27 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin'], 'as'=>'admin'
         Route::get('/delete/{id}', 'Master\PaketController@destroy')->name('.delete');
     });
 
+    //Extra item
+    Route::group(['prefix' => 'item', 'as'=>'.item'], function() {
+        Route::get('/', 'Master\ItemController@index')->name('.manage');
+        Route::get('/create', 'Master\ItemController@create')->name('.create');
+        Route::post('/create', 'Master\ItemController@store')->name('.store');
+        Route::get('/update/{id}', 'Master\ItemController@edit')->name('.edit');
+        Route::post('/update/{id}', 'Master\ItemController@update')->name('.update');
+        Route::get('/detail/{id}', 'Master\ItemController@show')->name('.detail');
+        Route::get('/delete/{id}', 'Master\ItemController@destroy')->name('.delete');
+    });
+
+    //transaction
+    Route::group(['prefix' => 'transaction', 'as'=>'.transaction'], function() {
+        Route::get('/', 'Master\TransactionController@index')->name('.manage');
+        Route::get('/detail/{id}', 'Master\TransactionController@show')->name('.detail');
+        Route::get('/cancel/{id}', 'Master\TransactionController@cancel')->name('.cancel');
+        Route::get('/approve/{id}', 'Master\TransactionController@approve')->name('.approve');
+        Route::get('/complete_transaction/{id}', 'Master\TransactionController@complete_transaction')->name('.complete_transaction');
+        Route::get('/cancel_transaction/{id}', 'Master\TransactionController@cancel_transaction')->name('.cancel_transaction');
+    });
+
     //gallery
     Route::group(['prefix' => 'gallery', 'as'=>'.gallery'], function() {
         Route::get('/', 'Master\GalleryController@index')->name('.manage');

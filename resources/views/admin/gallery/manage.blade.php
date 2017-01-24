@@ -3,6 +3,7 @@
 @push('plugin_css')
 <link href="{{ url('assets/backend') }}/plugins/datatables/dataTables.bootstrap.css" type="text/css" rel="stylesheet">
 <link href="{{ url('assets/backend') }}/plugins/datatables/dataTables.themify.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ url('assets') }}/plugins/fancyapps-fancyBox/source/jquery.fancybox.css?v=2.1.5">
 @endpush
 
 @section('content')
@@ -41,12 +42,16 @@
                                     <tbody>
                                     @foreach($model as $row)
                                         <tr>
-                                            <td><img src="{{ url('images/'.$row->image) }}" width="150" height="100"></td>
+                                            <td>
+                                                <a href="{{ url('images/'.$row->image) }}" class="fancybox-effects-d" title="{{ $row->deskripsi }}">
+                                                    <img src="{{ url('images/'.$row->image) }}" width="150" height="100">
+                                                </a>
+                                            </td>
                                             <td>{{ $row->title }}</td>
                                             <td>{{ $row->deskripsi }}</td>
-                                            <td class="center">
+                                            <td class="center" width="80">
                                                 <a href="javascript:null" data-id="{{ $row->id }}" class="btn btn-danger btn-raised btn-xs hapus"><i class="fa fa-close"></i><div class="ripple-container"></div></a>
-                                                <a href="{{ route('admin.gallery.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a></td>
+                                                <!-- <a href="{{ route('admin.gallery.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a></td> -->
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -65,6 +70,7 @@
 <script src="{{ url('assets/backend') }}/plugins/datatables/jquery.dataTables.js"></script>
 <script src="{{ url('assets/backend') }}/plugins/datatables/dataTables.bootstrap.js"></script>
 <script src="{{ url('assets/backend') }}/demo/demo-datatables.js"></script>
+<script src="{{ url('assets') }}/plugins/fancyapps-fancyBox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 @endpush
 
 @push('scripts')
@@ -76,6 +82,23 @@
             window.location = "<?= url('admin/gallery/delete') ?>/"+id;
         }else{
 
+        }
+    });
+</script>
+<script>
+    $(".fancybox-effects-d").fancybox({
+        padding: 0,
+
+        openEffect : 'elastic',
+        openSpeed  : 150,
+
+        closeEffect : 'elastic',
+        closeSpeed  : 150,
+
+        closeClick : true,
+
+        helpers : {
+            overlay : null
         }
     });
 </script>

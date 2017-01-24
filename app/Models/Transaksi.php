@@ -28,7 +28,7 @@ class Transaksi extends Model
 
     public function getStatus()
     {
-        $status = ['1'=>'Waiting Payment','2'=>'Verifying Payment','3'=>'Paid','4'=>'Finish'];
+        $status = ['0'=>'Cancelled','1'=>'Waiting Payment','2'=>'Verifying Payment','3'=>'Paid','4'=>'Finish'];
         return $status[$this->status];
     }
 

@@ -10,11 +10,11 @@
         <ol class="breadcrumb">
 
             <li class=""><a href="{{ route('admin.dashboard') }}">Home</a></li>
-            <li class="active"><a href="{{ route('admin.paket.manage') }}">Paket</a></li>
+            <li class="active"><a href="{{ route('admin.item.manage') }}">Item</a></li>
 
         </ol>
         <div class="page-heading">
-            <h1>Wedding Package<small>Wedding Plan</small></h1>
+            <h1>Extra Item<small>Extra Item</small></h1>
             <div class="options">
             </div>
         </div>
@@ -22,7 +22,7 @@
             <div data-widget-group="group1">
                 <div class="row">
                     <div class="col-md-12">
-                        <a class="btn btn-lg btn-primary btn-raised btn-label" href="{{ route('admin.paket.create') }}"><i class="fa fa-download"></i> Add New Data<div class="ripple-container"></div></a>
+                        <a class="btn btn-lg btn-primary btn-raised btn-label" href="{{ route('admin.item.create') }}"><i class="fa fa-download"></i> Add New Data<div class="ripple-container"></div></a>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h2>Data Tables</h2>
@@ -32,10 +32,9 @@
                                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                     <tr>
-                                        <th>Package Name</th>
+                                        <th>Item Name</th>
                                         <th>Price</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
+                                        <th>Unit</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -44,12 +43,10 @@
                                         <tr>
                                             <td>{{ $row->nama }}</td>
                                             <td>Rp {{ number_format($row->harga,0,',','.') }}</td>
-                                            <td width="400px">{{ $row->deskripsi }}</td>
-                                            <td> {{ $row->getStatus() }}</td>
-                                            <td class="center" width="150">
+                                            <td> {{ $row->satuan }}</td>
+                                            <td class="center" width="100">
                                                 <a href="javascript:null" data-id="{{ $row->id }}" class="btn btn-danger btn-raised btn-xs hapus"><i class="fa fa-close"></i><div class="ripple-container"></div></a>
-                                                <a href="{{ route('admin.paket.edit',$row->id) }}" class="btn btn-warning btn-raised btn-xs"><i class="fa fa-pencil"></i><div class="ripple-container"></div></a>
-                                                <a href="{{ route('admin.paket.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a></td>
+                                                <a href="{{ route('admin.item.edit',$row->id) }}" class="btn btn-warning btn-raised btn-xs"><i class="fa fa-pencil"></i><div class="ripple-container"></div></a>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -76,7 +73,7 @@
         var id = $(this).data("id");
         var p = confirm('Are you sure to delete this data?');
         if(p==true){
-            window.location = "<?= url('admin/paket/delete') ?>/"+id;
+            window.location = "<?= url('admin/item/delete') ?>/"+id;
         }else{
 
         }

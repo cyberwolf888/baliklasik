@@ -10,11 +10,11 @@
         <ol class="breadcrumb">
 
             <li class=""><a href="{{ route('admin.dashboard') }}">Home</a></li>
-            <li class="active"><a href="{{ route('admin.paket.manage') }}">Paket</a></li>
+            <li class="active"><a href="{{ route('admin.transaction.manage') }}">Transaction</a></li>
 
         </ol>
         <div class="page-heading">
-            <h1>Wedding Package<small>Wedding Plan</small></h1>
+            <h1>Transaction<small>Transaction</small></h1>
             <div class="options">
             </div>
         </div>
@@ -22,7 +22,6 @@
             <div data-widget-group="group1">
                 <div class="row">
                     <div class="col-md-12">
-                        <a class="btn btn-lg btn-primary btn-raised btn-label" href="{{ route('admin.paket.create') }}"><i class="fa fa-download"></i> Add New Data<div class="ripple-container"></div></a>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h2>Data Tables</h2>
@@ -32,9 +31,11 @@
                                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                     <tr>
-                                        <th>Package Name</th>
-                                        <th>Price</th>
-                                        <th>Description</th>
+                                        <th>Member Name</th>
+                                        <th>Wedding Date</th>
+                                        <th>Location</th>
+                                        <th>Total</th>
+                                        <th>Paid</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -42,14 +43,14 @@
                                     <tbody>
                                     @foreach($model as $row)
                                         <tr>
-                                            <td>{{ $row->nama }}</td>
-                                            <td>Rp {{ number_format($row->harga,0,',','.') }}</td>
-                                            <td width="400px">{{ $row->deskripsi }}</td>
+                                            <td>{{ $row->member->nama }}</td>
+                                            <td>{{ date('d F Y',strtotime($row->wedding_date)) }}</td>
+                                            <td>{{ $row->alamat.' - '.$row->city }}</td>
+                                            <td>Rp {{ number_format($row->getTotal(),0,',','.') }}</td>
+                                            <td>Rp {{ number_format($row->getTotalPaid(),0,',','.') }}</td>
                                             <td> {{ $row->getStatus() }}</td>
-                                            <td class="center" width="150">
-                                                <a href="javascript:null" data-id="{{ $row->id }}" class="btn btn-danger btn-raised btn-xs hapus"><i class="fa fa-close"></i><div class="ripple-container"></div></a>
-                                                <a href="{{ route('admin.paket.edit',$row->id) }}" class="btn btn-warning btn-raised btn-xs"><i class="fa fa-pencil"></i><div class="ripple-container"></div></a>
-                                                <a href="{{ route('admin.paket.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a></td>
+                                            <td class="center" width="80">
+                                                <a href="{{ route('admin.transaction.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -71,15 +72,4 @@
 @endpush
 
 @push('scripts')
-<script>
-    $(".hapus").click(function () {
-        var id = $(this).data("id");
-        var p = confirm('Are you sure to delete this data?');
-        if(p==true){
-            window.location = "<?= url('admin/paket/delete') ?>/"+id;
-        }else{
-
-        }
-    });
-</script>
 @endpush

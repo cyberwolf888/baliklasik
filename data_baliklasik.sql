@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 23 Jan 2017 pada 08.46
+-- Generation Time: 24 Jan 2017 pada 10.47
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -63,7 +63,8 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `nama`, `harga`, `satuan`, `created_at`, `updated_at`) VALUES
-(1, 'Kursi', 3000, 'unit', '2017-01-22 06:48:47', '2017-01-22 06:48:48');
+(1, 'Kursi', 3000, 'unit', '2017-01-22 06:48:47', '2017-01-22 06:48:48'),
+(2, 'Tenda', 500000, 'set', '2017-01-23 23:47:31', '2017-01-23 23:50:15');
 
 -- --------------------------------------------------------
 
@@ -194,8 +195,8 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`id`, `transaksi_id`, `image`, `total_transfer`, `date_transfer`, `bank`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, '26fa7c7af9f103f8415c30c2c836c36f.jpg', 22000000, '2017-01-22', 1, 2, '2017-01-21 22:34:39', '2017-01-21 22:34:39'),
-(2, 1, '44b9bb63c052367e1fcc21986f8cea02.jpg', 20000000, '2017-01-24', 2, 1, '2017-01-21 22:42:01', '2017-01-21 22:42:01');
+(1, 1, '26fa7c7af9f103f8415c30c2c836c36f.jpg', 22000000, '2017-01-22', 1, 0, '2017-01-21 22:34:39', '2017-01-24 01:29:57'),
+(2, 1, '44b9bb63c052367e1fcc21986f8cea02.jpg', 20000000, '2017-01-24', 2, 2, '2017-01-21 22:42:01', '2017-01-24 01:29:24');
 
 -- --------------------------------------------------------
 
@@ -289,7 +290,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id`, `member_id`, `city`, `alamat`, `wedding_date`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Badung', 'Jalan Buduk', '2017-02-03', 1, '2017-01-17 21:46:21', '2017-01-17 21:46:21'),
+(1, 2, 'Badung', 'Jalan Buduk', '2017-02-03', 3, '2017-01-17 21:46:21', '2017-01-24 01:42:07'),
 (2, 2, 'Badung', 'Jalan Nangka Utara No.1', '2017-02-08', 1, '2017-01-19 19:43:00', '2017-01-19 19:43:00');
 
 -- --------------------------------------------------------
@@ -460,7 +461,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `member`
 --

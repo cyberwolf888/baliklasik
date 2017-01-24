@@ -9,7 +9,6 @@
 
             <li class=""><a href="{{ route('admin.dashboard') }}">Home</a></li>
             <li class="active"><a href="{{ route('admin.paket.manage') }}">Paket</a></li>
-            <li class="active"><a href="{{ route('admin.paket.manage') }}">Form</a></li>
         </ol>
         <div class="page-heading">
             <h1>Wedding Package<small>Wedding Plan</small></h1>
