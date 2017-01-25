@@ -6,21 +6,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         //$this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('frontend/home');
@@ -39,6 +29,11 @@ class HomeController extends Controller
     public function contact()
     {
         return view('frontend/contact');
+    }
+
+    public function send_contact(Request $request)
+    {
+        return redirect()->back()->with('success','Your message has been sent.');
     }
 }
 

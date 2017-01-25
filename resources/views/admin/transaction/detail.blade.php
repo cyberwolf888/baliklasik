@@ -36,6 +36,12 @@
                                     <tbody>
                                     <tr>
                                         <td>
+                                            <h4><small>Transactin Date</small></h4>
+                                            <h4>{{ date('d/m/Y',strtotime($model->created_at)) }}</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             <h4><small>Member Name</small></h4>
                                             <h4>{{ $model->member->nama }}</h4>
                                         </td>

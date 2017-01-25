@@ -41,7 +41,7 @@
     <!-- <div id="page-progress-loader" class="show"></div> -->
 
     <div class="logo-area">
-        <a class="navbar-brand navbar-brand-info " href="index-2.html">
+        <a class="navbar-brand navbar-brand-info " href="{{ url('admin') }}">
             <img class="show-on-collapse img-logo-white" alt="Paper" src="{{ url('assets/backend') }}/img/logo-icon-white.png">
             <img class="show-on-collapse img-logo-dark" alt="Paper" src="{{ url('assets/backend') }}/img/logo-icon-dark.png">
             <img class="img-white" alt="Paper" src="{{ url('assets/backend') }}/img/logo-white.png">
@@ -69,79 +69,6 @@
 	        	<i class="material-icons">fullscreen</i>
 	        </span></i></a>
         </li>
-
-        <li class="dropdown toolbar-icon-bg">
-            <a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="material-icons">notifications</i></span><span class="badge badge-info"></span></a>
-            <div class="dropdown-menu animated notifications">
-                <div class="topnav-dropdown-header">
-                    <span>3 new notifications</span>
-
-                </div>
-                <div class="scroll-pane">
-                    <ul class="media-list scroll-content">
-                        <li class="media notification-success">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="material-icons">lock</i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">Privacy settings have been changed.</h4>
-                                    <span class="notification-time">8 mins ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="media notification-info">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="material-icons">shopping_cart</i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">A new order has been placed.</h4>
-                                    <span class="notification-time">24 mins ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="media notification-teal">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="material-icons">perm_contact_calendar</i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">New event started!</h4>
-                                    <span class="notification-time">16 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="media notification-indigo">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="material-icons">settings</i></i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">New app settings updated.</h4>
-                                    <span class="notification-time">2 days ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="media notification-danger">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="material-icons">comment</i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">Jessi commented your post.</h4>
-                                    <span class="notification-time">4 days ago</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="topnav-dropdown-footer">
-                    <a href="#">See all notifications</a>
-                </div>
-            </div>
-        </li>
-
     </ul>
 
 </header>
@@ -158,8 +85,8 @@
                                     <img src="{{ url('assets/backend') }}/demo/avatar/avatar_15.png" class="img-responsive img-circle">
                                 </div>
                                 <div class="info">
-                                    <span class="username">Jonathan Smith</span>
-                                    <span class="useremail">jon@paperadmin.com</span>
+                                    <span class="username">{{ Auth::user()->name }}</span>
+                                    <span class="useremail">{{ Auth::user()->email }}</span>
                                 </div>
 
                                 <div class="acct-dropdown clearfix dropdown">
@@ -190,7 +117,7 @@
                                         <li><a  class="withripple" href="{{ route('admin.user.admin.manage') }}">Admin</a></li>
                                     </ul>
                                 </li>
-                                <li><a  class="withripple" href="{{ route('admin.gallery.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Report</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.report.period') }}"><span class="icon"><i class="material-icons">code</i></span><span>Report</span></a></li>
                                 <li>
                                     <a  class="withripple" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         <span class="icon"><i class="material-icons">code</i></span>

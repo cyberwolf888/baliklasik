@@ -19,6 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/plan', 'HomeController@plan')->name('plan');
 Route::get('/gallery', 'HomeController@gallery')->name('gallery');
 Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::post('/contact', 'HomeController@send_contact')->name('send_contact');
 Route::get('/transaction/{id}', 'TransactionController@create')->name('transaction');
 Route::post('/transaction/{id}', 'TransactionController@store')->name('transaction.store');
 Route::get('/invoice/{id}', 'TransactionController@invoice')->name('invoice');
@@ -71,7 +72,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin'], 'as'=>'admin'
         Route::get('/delete/{id}', 'Master\GalleryController@destroy')->name('.delete');
     });
 
-    //gallery
+    //User
     Route::group(['prefix' => 'user', 'as'=>'.user'], function() {
         Route::group(['prefix' => 'member', 'as'=>'.member'], function() {
             Route::get('/', 'Master\UserController@member_index')->name('.manage');
@@ -92,6 +93,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin'], 'as'=>'admin'
             Route::get('/detail/{id}', 'Master\UserController@admin_show')->name('.detail');
             Route::get('/delete/{id}', 'Master\UserController@admin_destroy')->name('.delete');
         });
+    });
+
+    //report
+    Route::group(['prefix' => 'report', 'as'=>'.report'], function() {
+        Route::get('/period', 'Master\ReportController@period')->name('.period');
+        Route::post('/result', 'Master\ReportController@index')->name('.result');
     });
 });
 

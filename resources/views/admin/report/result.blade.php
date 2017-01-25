@@ -3,6 +3,7 @@
 @push('plugin_css')
 <link href="{{ url('assets/backend') }}/plugins/datatables/dataTables.bootstrap.css" type="text/css" rel="stylesheet">
 <link href="{{ url('assets/backend') }}/plugins/datatables/dataTables.themify.css" type="text/css" rel="stylesheet">
+<link href="{{ url('assets/') }}/plugins/datatables/buttons.dataTables.min.css" type="text/css" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -10,11 +11,11 @@
         <ol class="breadcrumb">
 
             <li class=""><a href="{{ route('admin.dashboard') }}">Home</a></li>
-            <li class="active"><a href="{{ route('admin.transaction.manage') }}">Transaction</a></li>
+            <li class="active"><a href="{{ route('admin.report.period') }}">Report</a></li>
 
         </ol>
         <div class="page-heading">
-            <h1>Transaction<small>Transaction</small></h1>
+            <h1>Report {{ $start_date }} - {{ $end_date }}<small>Transaction</small></h1>
             <div class="options">
             </div>
         </div>
@@ -28,7 +29,7 @@
                                 <div class="panel-ctrls"></div>
                             </div>
                             <div class="panel-body no-padding">
-                                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <table id="result" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                     <tr>
                                         <th>Transaction Date</th>
@@ -38,7 +39,6 @@
                                         <th>Total</th>
                                         <th>Paid</th>
                                         <th>Status</th>
-                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -51,8 +51,6 @@
                                             <td>Rp {{ number_format($row->getTotal(),0,',','.') }}</td>
                                             <td>Rp {{ number_format($row->getTotalPaid(),0,',','.') }}</td>
                                             <td> {{ $row->getStatus() }}</td>
-                                            <td class="center" width="80">
-                                                <a href="{{ route('admin.transaction.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -68,10 +66,38 @@
 @endsection
 
 @push('plugin_scripts')
-<script src="{{ url('assets/backend') }}/plugins/datatables/jquery.dataTables.js"></script>
+<script src="{{ url('assets/') }}/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{ url('assets/backend') }}/plugins/datatables/dataTables.bootstrap.js"></script>
-<script src="{{ url('assets/backend') }}/demo/demo-datatables.js"></script>
+<script src="{{ url('assets/') }}/plugins/datatables/dataTables.buttons.min.js"></script>
+<script src="{{ url('assets/') }}/plugins/datatables/jszip.min.js"></script>
+<script src="{{ url('assets/') }}/plugins/datatables/pdfmake.min.js"></script>
+<script src="{{ url('assets/') }}/plugins/datatables/vfs_fonts.js"></script>
+<script src="{{ url('assets/') }}/plugins/datatables/buttons.html5.min.js"></script>
 @endpush
 
 @push('scripts')
+<script>
+    $('#result').dataTable({
+        "language": {
+            "lengthMenu": "_MENU_"
+        },
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    });
+    $('.dataTables_filter input').attr('placeholder','Search...');
+
+
+    //DOM Manipulation to move datatable elements integrate to panel
+    $('.panel-ctrls').append($('.dataTables_filter').addClass("pull-right")).find("label").addClass("panel-ctrls-center");
+    $('.panel-ctrls').append("<i class='separator'></i>");
+    $('.panel-ctrls').append($('.dataTables_length').addClass("pull-left")).find("label").addClass("panel-ctrls-center");
+
+    $('.panel-footer').append($(".dataTable+.row"));
+    $('.dataTables_paginate>ul.pagination').addClass("pull-right m-n");
+</script>
 @endpush

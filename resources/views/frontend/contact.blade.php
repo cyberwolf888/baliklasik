@@ -38,8 +38,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="well-box">
+                        @if(session()->has('success'))
+                            <div class="alert alert-success" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <strong>Success ! </strong> {{ session('success') }}
+                            </div>
+                        @endif
                         <p>Please fill out the form below and we will get back to you as soon as possible.</p>
-                        <form>
+                        <form action="" method="post">
+                        {{ csrf_field() }}
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="control-label" for="first">Your Name <span class="required">*</span></label>
