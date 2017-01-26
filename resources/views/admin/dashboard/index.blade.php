@@ -44,8 +44,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-indigo">
                             <div class="info">
-                                <div class="tile-heading"><span>Page Views</span></div>
-                                <div class="tile-body"><span>5,921</span></div>
+                                <div class="tile-heading"><span>Total Member</span></div>
+                                <div class="tile-body"><span>{{ \App\Models\Member::count('id') }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-indigo"></div></div>
@@ -55,8 +55,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-danger">
                             <div class="info">
-                                <div class="tile-heading"><span>Aquisitions</span></div>
-                                <div class="tile-body "><span>2,344</span></div>
+                                <div class="tile-heading"><span>Total Package</span></div>
+                                <div class="tile-body "><span>{{ \App\Models\Paket::count('id') }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-gray"></div></div>
@@ -66,8 +66,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-primary">
                             <div class="info">
-                                <div class="tile-heading"><span>Conversions</span></div>
-                                <div class="tile-body "><span>1,032</span></div>
+                                <div class="tile-heading"><span>Total Transaction</span></div>
+                                <div class="tile-body "><span>{{ \App\Models\Transaksi::count('id') }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-primary"></div></div>
@@ -77,8 +77,8 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="info-tile info-tile-alt tile-success clearfix">
                             <div class="info">
-                                <div class="tile-heading"><span>Returning</span></div>
-                                <div class="tile-body "><span>1,454</span></div>
+                                <div class="tile-heading"><span>Total Items</span></div>
+                                <div class="tile-body "><span>{{ \App\Models\Items::count('id') }}</span></div>
                             </div>
                             <div class="stats">
                                 <div class="tile-content"><div id="dashboard-sparkline-success"></div></div>
@@ -90,23 +90,40 @@
                 <div class="row">
                     <div class="col-md-12 full-width">
                         <div class="panel panel-default no-shadow" data-widget='{"draggable": "false"}'>
-                            <div class="panel-controls dropdown">
-                                <button class="btn btn-icon-rounded refresh-panel"><span class="material-icons inverted">refresh</span></button>
-                                <button class="btn btn-icon-rounded dropdown-toggle" data-toggle="dropdown"><span class="material-icons inverted">more_vert</span></button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                </ul>
-                            </div>
                             <div class="panel-body">
                                 <div class="pb-md">
-                                    <h4 class="mb-n">SALES STATISTICS<small>Aliquam tincidunt mauris eu risus.</small></h4>
+                                    <h4 class="mb-n">Last 5 Transaction<small>All Transaction.</small></h4>
 
                                 </div>
-                                <div id="fullChart" style="height: 325px " class="centered"></div>
+                                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Transaction Date</th>
+                                        <th>Member Name</th>
+                                        <th>Wedding Date</th>
+                                        <th>Location</th>
+                                        <th>Total</th>
+                                        <th>Paid</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach(\App\Models\Transaksi::orderBy('id','desc')->limit(5)->get() as $row)
+                                        <tr>
+                                            <td>{{ date('d/m/Y',strtotime($row->created_at)) }}</td>
+                                            <td>{{ $row->member->nama }}</td>
+                                            <td>{{ date('d F Y',strtotime($row->wedding_date)) }}</td>
+                                            <td>{{ $row->alamat.' - '.$row->city }}</td>
+                                            <td>Rp {{ number_format($row->getTotal(),0,',','.') }}</td>
+                                            <td>Rp {{ number_format($row->getTotalPaid(),0,',','.') }}</td>
+                                            <td> {{ $row->getStatus() }}</td>
+                                            <td class="center" width="80">
+                                                <a href="{{ route('admin.transaction.detail',$row->id) }}" class="btn btn-info btn-raised btn-xs"><i class="fa fa-eye"></i><div class="ripple-container"></div></a></td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -132,8 +149,6 @@
 
 <script src="{{ url('assets/backend') }}/plugins/form-daterangepicker/moment.min.js"></script>             <!-- Moment.js for Date Range Picker -->
 
-<!-- Date Range Picker -->
-<script src="{{ url('assets/backend') }}/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>               <!-- Datepicker -->
 <!-- <script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script> --> <!-- DateTime Picker -->
 
 <!-- <script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>   -->    <!-- jVectorMap -->

@@ -107,20 +107,20 @@
                             <ul class="acc-menu">
                                 <li class="nav-separator"><span>Navigation</span></li>
                                 <li><a  class="withripple" href="{{ url('admin') }}"><span class="icon"><i class="material-icons">home</i></span><span>Dashboard</span></a></li>
-                                <li><a  class="withripple" href="{{ route('admin.paket.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Wedding Package</span></a></li>
-                                <li><a  class="withripple" href="{{ route('admin.item.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Extra Item</span></a></li>
-                                <li><a  class="withripple" href="{{ route('admin.transaction.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Transaction</span></a></li>
-                                <li><a  class="withripple" href="{{ route('admin.gallery.manage') }}"><span class="icon"><i class="material-icons">code</i></span><span>Gallery</span></a></li>
-                                <li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">flash_on</i></span><span>Users</span></a>
+                                <li><a  class="withripple" href="{{ route('admin.paket.manage') }}"><span class="icon"><i class="material-icons">account_balance_wallet</i></span><span>Wedding Package</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.item.manage') }}"><span class="icon"><i class="material-icons">add_shopping_cart</i></span><span>Extra Item</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.transaction.manage') }}"><span class="icon"><i class="material-icons">monetization_on</i></span><span>Transaction</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.gallery.manage') }}"><span class="icon"><i class="material-icons">photo_library</i></span><span>Gallery</span></a></li>
+                                <li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">supervisor_account</i></span><span>Users</span></a>
                                     <ul class="acc-menu">
                                         <li><a  class="withripple" href="{{ route('admin.user.member.manage') }}">Member</a></li>
                                         <li><a  class="withripple" href="{{ route('admin.user.admin.manage') }}">Admin</a></li>
                                     </ul>
                                 </li>
-                                <li><a  class="withripple" href="{{ route('admin.report.period') }}"><span class="icon"><i class="material-icons">code</i></span><span>Report</span></a></li>
+                                <li><a  class="withripple" href="{{ route('admin.report.period') }}"><span class="icon"><i class="material-icons">description</i></span><span>Report</span></a></li>
                                 <li>
                                     <a  class="withripple" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                        <span class="icon"><i class="material-icons">code</i></span>
+                                        <span class="icon"><i class="material-icons">reply</i></span>
                                         <span>Logout</span>
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}

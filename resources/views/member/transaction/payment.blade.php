@@ -123,7 +123,7 @@
                             <div class="bg-white pinside30">
                                 <!-- Form Name -->
                                 <h2 class="form-title">Bank Information</h2>
-                                <p>Plase do fund transfer your money to following bank:</p>
+                                <p>Please do fund transfer before 24 hour from your last transaction to following bank:</p>
                                 <span><b>Bank Central Asia (BCA)</b></span><br>
                                 <span>772-514-2048</span><br>
                                 <span>An. Bali Klasik</span><br><br>

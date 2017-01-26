@@ -11,7 +11,7 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        $model = Transaksi::orderBy('id','DESC')->get();
+        $model = Transaksi::orderBy('id','desc')->get();
         return view('admin/transaction/manage',[
             'model'=>$model
         ]);

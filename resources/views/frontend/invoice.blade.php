@@ -209,7 +209,7 @@
 
                         </div>
                         <br>
-                        <center><a href="#" class="btn btn-primary btn-lg">Continue to payment <i class="fa fa-arrow-right" aria-hidden="true"></i></a></center>
+                        <center><a href="{{ route('member.transaction.payment',$transaksi->id) }}" class="btn btn-primary btn-lg">Continue to payment <i class="fa fa-arrow-right" aria-hidden="true"></i></a></center>
                     </div>
                 </div>
             </div>

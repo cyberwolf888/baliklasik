@@ -64,6 +64,7 @@
                             <!-- Button -->
                             <div class="form-group">
                                 <button id="submit" name="submit" class="btn btn-primary btn-lg">Login</button>
+                                <a href="{{ route('register') }}" class="btn btn-primary btn-lg">Register</a>
                             </div>
                         </form>
                     </div>

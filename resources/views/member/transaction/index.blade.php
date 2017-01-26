@@ -49,6 +49,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="budget-board">
                 <div class="list-group">
                     <div href="#" class="list-group-item active">
@@ -60,6 +61,7 @@
                             <div class="col-md-1">Status</div>
                         </div>
                     </div>
+
                     @foreach($model as $row)
                         <div class="list-group-item">
                             <div class="row">
@@ -98,6 +100,10 @@
                                                     <th scope="row" colspan="3"> <center><b>Total Paid</b></center></th>
                                                     <td>Rp {{ number_format($row->getTotalPaid(),0,',','.') }}</td>
                                                 </tr>
+                                                <tr>
+                                                    <th scope="row" colspan="3"> <center><b>Due Payment</b></center></th>
+                                                    <td>Rp {{ number_format($row->getTotal()-$row->getTotalPaid(),0,',','.') }}</td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                             <a href="{{ route('member.transaction.item',$row->id) }}" title="add new items" class="btn btn-primary add-item">+ Add Item</a> </div><br><br>
@@ -126,16 +132,14 @@
                                             </tbody>
                                         </table>
                                         <a href="{{ route('member.transaction.payment',$row->id) }}" title="add new payment" class="btn btn-primary add-item">+ Add Payment</a> </div><br><br>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-
+                @endforeach
                 </div>
-            </div>
-        </div>
-    </div>
+            </div> <!-- budget board -->
+        </div> <!-- container -->
+    </div> <!-- main-container -->
 @endsection
 
 @push('plugin_scripts')
