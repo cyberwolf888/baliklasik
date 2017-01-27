@@ -58,7 +58,12 @@
                     <li><a href="{{ url('register') }}">Register</a></li>
                     <li><a href="{{ url('login') }}">Log in</a></li>
                     @else
-                        <li><a href="{{ url('member') }}">My Account</a></li>
+                        @role('admin')
+                            <li><a href="{{ url('admin') }}">My Account</a></li>
+                        @endrole
+                        @role('member')
+                            <li><a href="{{ url('member') }}">My Account</a></li>
+                        @endrole
                         <li>
                             <a href="{{ url('/logout') }}"
                                onclick="event.preventDefault();
@@ -113,12 +118,11 @@
             <div class="col-md-3 ft-link">
                 <h2>Useful links</h2>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Career</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('plan') }}">Wedding Plan</a></li>
+                    <li><a href="{{ url('gallery') }}">Gallery</a></li>
+                    <li><a href="{{ url('contact') }}">Contact us</a></li>
+                    <li><a href="{{ url('login') }}">Login</a></li>
                 </ul>
             </div>
             <div class="col-md-4 newsletter">

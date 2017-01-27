@@ -48,7 +48,7 @@
                                             <td>{{ $row->alamat }}</td>
                                             <td>{{ $row->user->getStatus() }}</td>
                                             <td class="center" width="100">
-                                                <a href="javascript:null" data-id="{{ $row->id }}" class="btn btn-danger btn-raised btn-xs hapus"><i class="fa fa-close"></i><div class="ripple-container"></div></a>
+                                                <!-- <a href="javascript:null" data-id="{{ $row->id }}" class="btn btn-danger btn-raised btn-xs hapus"><i class="fa fa-close"></i><div class="ripple-container"></div></a> -->
                                                 <a href="{{ route('admin.user.member.edit',$row->id) }}" class="btn btn-warning btn-raised btn-xs"><i class="fa fa-pencil"></i><div class="ripple-container"></div></a>
                                         </tr>
                                     @endforeach
