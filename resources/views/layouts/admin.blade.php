@@ -140,7 +140,7 @@
             <footer role="contentinfo">
                 <div class="clearfix">
                     <ul class="list-unstyled list-inline pull-left">
-                        <li><h6 style="margin: 0;">&copy; 2016 KaijuThemes</h6></li>
+                        <li><h6 style="margin: 0;">Copyright © {{ date('Y') }} Bali Klasik. All Rights Reserved</h6></li>
                     </ul>
                 </div>
             </footer>

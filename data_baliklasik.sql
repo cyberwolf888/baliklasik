@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 24 Jan 2017 pada 10.47
+-- Generation Time: 30 Jan 2017 pada 08.14
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -201,32 +201,6 @@ INSERT INTO `payment` (`id`, `transaksi_id`, `image`, `total_transfer`, `date_tr
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `permissions`
---
-
-CREATE TABLE `permissions` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `display_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `permission_role`
---
-
-CREATE TABLE `permission_role` (
-  `permission_id` int(10) UNSIGNED NOT NULL,
-  `role_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `roles`
 --
 
@@ -291,7 +265,8 @@ CREATE TABLE `transaksi` (
 
 INSERT INTO `transaksi` (`id`, `member_id`, `city`, `alamat`, `wedding_date`, `status`, `created_at`, `updated_at`) VALUES
 (1, 2, 'Badung', 'Jalan Buduk', '2017-02-03', 3, '2017-01-17 21:46:21', '2017-01-24 01:42:07'),
-(2, 2, 'Badung', 'Jalan Nangka Utara No.1', '2017-02-08', 1, '2017-01-19 19:43:00', '2017-01-19 19:43:00');
+(2, 2, 'Badung', 'Jalan Nangka Utara No.1', '2017-02-08', 1, '2017-01-19 19:43:00', '2017-01-19 19:43:00'),
+(3, 2, 'Denpasar', 'asasd', '2017-02-14', 1, '2017-01-25 23:37:05', '2017-01-25 23:37:05');
 
 -- --------------------------------------------------------
 
@@ -317,7 +292,8 @@ CREATE TABLE `transaksi_detail` (
 INSERT INTO `transaksi_detail` (`id`, `transaksi_id`, `item`, `qty`, `harga`, `total`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-17 21:46:21', '2017-01-17 21:46:21'),
 (2, 2, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-19 19:43:00', '2017-01-19 19:43:00'),
-(3, 1, 'Kursi', 200, 3000, 600000, '2017-01-22 22:36:56', '2017-01-22 22:36:56');
+(3, 1, 'Kursi', 200, 3000, 600000, '2017-01-22 22:36:56', '2017-01-22 22:36:56'),
+(4, 3, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-25 23:37:05', '2017-01-25 23:37:05');
 
 -- --------------------------------------------------------
 
@@ -342,11 +318,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `status`, `type`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@mail.com', '$2y$10$vNsWSJXaQ.9ZiJRLpzJiYO48pS1I3M630cMBu1x08TiubZGUj1DEq', 'Dr476476KnnQrhG9z7OBuXJO25JBWSQKUdbmpdsr3lJZbCyx5jHd7WPncUw4', 1, 1, '2016-12-09 00:00:14', '2017-01-17 19:57:19'),
+(1, 'admin', 'admin@mail.com', '$2y$10$vNsWSJXaQ.9ZiJRLpzJiYO48pS1I3M630cMBu1x08TiubZGUj1DEq', 'Q3HwrTDOyjwZYAtzwUFd3PoeTOltquODUhbMEQyZrZ02E73Ry7QsmBPSaZaT', 1, 1, '2016-12-09 00:00:14', '2017-01-26 20:04:41'),
 (2, 'Member', 'member@mail.com', '$2y$10$DkzQYvDDlZLNNkda4G0QTuOJChMTow7TpK8FqTIJGDtq.PGEbIMm2', 'HyoV8STKygwH245vczFQyoWX9rceN3DO5150teg2Pji2LJz40fxf1VzMcTpi', 1, 2, '2017-01-06 03:30:12', '2017-01-18 19:20:49'),
 (3, 'Hendra Wijaya', 'wijaya.imd@gmail.com', '$2y$10$S8iWFOj53H.erWSjwvP7uO465LkRgEh1LQs1qwjFmqfbdCovBLLra', 'hguVdEUSjG35gjAM6ugh6IFvPckqaDJbOV0hLFHbv5Unypg8yeib2m1b3fPq', 1, 2, '2017-01-16 06:25:45', '2017-01-18 19:21:12'),
 (4, 'Admin Bedebah', 'admin2@mail.com', '$2y$10$GhrysuEvvYz8notT4e/Cz.6s9g.JpdIOFLjUD6m/4NVA4BKlItqMe', NULL, 0, 1, '2017-01-16 20:47:55', '2017-01-16 20:51:23'),
-(5, 'bedebah awesome', 'bedebah@mail.com', '$2y$10$B7W5KvwINS0OT9diTmXMAe0hvuGzAqk4ctHS/odU9ydl6..J5Na92', 'z3LysPsQEv3NxBiaTblceHkmlt9Y7ocWRogGmzOcAKWDwkt5LertKwQr0Hv2', 1, 2, '2017-01-17 20:50:21', '2017-01-22 23:44:36');
+(5, 'bedebah awesome', 'bedebah@mail.com', '$2y$10$B7W5KvwINS0OT9diTmXMAe0hvuGzAqk4ctHS/odU9ydl6..J5Na92', 'hKV12m1ws2CLwjunzKBiuc39n1IxqpOIdIQtl44HOIshbdRMTkUEGraVRxfm', 1, 2, '2017-01-17 20:50:21', '2017-01-26 20:06:03');
 
 --
 -- Indexes for dumped tables
@@ -402,20 +378,6 @@ ALTER TABLE `payment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `permissions`
---
-ALTER TABLE `permissions`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `permissions_name_unique` (`name`);
-
---
--- Indexes for table `permission_role`
---
-ALTER TABLE `permission_role`
-  ADD PRIMARY KEY (`permission_id`,`role_id`),
-  ADD KEY `permission_role_role_id_foreign` (`role_id`);
-
---
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -461,7 +423,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `member`
 --
@@ -488,11 +450,6 @@ ALTER TABLE `paket_detail`
 ALTER TABLE `payment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `permissions`
---
-ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
@@ -501,12 +458,12 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -515,13 +472,6 @@ ALTER TABLE `users`
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
-
---
--- Ketidakleluasaan untuk tabel `permission_role`
---
-ALTER TABLE `permission_role`
-  ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `role_user`
