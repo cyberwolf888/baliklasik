@@ -149,6 +149,10 @@
                                                 <h4>{{ $payment->getBank() }}</h4>
                                             </td>
                                             <td>
+                                                <h4><small>Type</small></h4>
+                                                <h4>{{ $payment->getType() }}</h4>
+                                            </td>
+                                            <td>
                                                 <h4><small>Status</small></h4>
                                                 <h4>{{ $payment->getStatus() }}</h4>
                                                 @if($payment->status == \App\Models\Payment::STATUS_WAITING_APPROVED)

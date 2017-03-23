@@ -116,6 +116,7 @@
                                                 <th class="col-md-2">Total Transfer</th>
                                                 <th class="col-md-2">Transfer Date</th>
                                                 <th class="col-md-1">Bank</th>
+                                                <th class="col-md-1">Type</th>
                                                 <th class="col-md-1">Status</th>
                                             </tr>
                                             </thead>
@@ -126,6 +127,7 @@
                                                     <td>Rp {{ number_format($payment->total_transfer,0,',','.') }}</td>
                                                     <td>{{ date('d F Y',strtotime($payment->date_transfer)) }}</td>
                                                     <td>{{ $payment->getBank() }}</td>
+                                                    <td>{{ $payment->getType() }}</td>
                                                     <td>{{ $payment->getStatus() }}</td>
                                                 </tr>
                                             @endforeach

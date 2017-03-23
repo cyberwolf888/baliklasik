@@ -100,10 +100,27 @@
                                         <select class="form-control" name="bank" required>
                                             <option value="1">BCA</option>
                                             <option value="2">Mandiri</option>
+                                            <option value="2">BNI</option>
+                                            <option value="2">BRI</option>
+                                            <option value="2">CIMB</option>
                                         </select>
                                         @if ($errors->has('bank'))
                                             <span class="help-block">
                                                     <strong>{{ $errors->first('bank') }}</strong>
+                                                </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                                    <label class="col-md-4 control-label" for="bank">Bank Transfer <span class="required">*</span></label>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="type" required>
+                                            <option value="1">Full Payment</option>
+                                            <option value="2">Partial Payment</option>
+                                        </select>
+                                        @if ($errors->has('type'))
+                                            <span class="help-block">
+                                                    <strong>{{ $errors->first('type') }}</strong>
                                                 </span>
                                         @endif
                                     </div>

@@ -47,6 +47,7 @@ class TransactionController extends Controller
         $model->date_transfer = date('Y-m-d',strtotime($request->date_transfer));
         $model->bank = $request->bank;
         $model->status = Payment::STATUS_WAITING_APPROVED;
+        $model->type = $request->type;
         $model->save();
 
         return redirect()->route('member.transaction.manage');

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Jan 2017 pada 08.14
+-- Generation Time: 23 Mar 2017 pada 05.40
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -88,7 +88,9 @@ CREATE TABLE `member` (
 
 INSERT INTO `member` (`id`, `user_id`, `nama`, `no_hp`, `alamat`, `created_at`, `updated_at`) VALUES
 (1, 3, 'Hendra Wijaya', '82247464193', 'Jalan Raya Pemogan No.18A\r\nkantor kamarmurah.com', '2017-01-16 06:25:45', '2017-01-16 06:25:45'),
-(2, 5, 'bedebah awesome', '08573736374', 'Jalan Bedebah', '2017-01-17 20:50:21', '2017-01-18 20:38:37');
+(2, 5, 'bedebah awesome', '08573736374', 'Jalan Bedebah', '2017-01-17 20:50:21', '2017-01-18 20:38:37'),
+(3, 6, 'Bedebah Member', '08485949', 'Jalan Wisnu Marga Belayu No 19', '2017-03-22 20:19:11', '2017-03-22 20:19:11'),
+(4, 7, 'Test Member', '0858493783', 'Jalan Denpasar', '2017-03-22 20:36:43', '2017-03-22 20:36:43');
 
 -- --------------------------------------------------------
 
@@ -184,8 +186,9 @@ CREATE TABLE `payment` (
   `image` text,
   `total_transfer` int(11) DEFAULT NULL,
   `date_transfer` date DEFAULT NULL,
-  `bank` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL,
+  `bank` int(1) DEFAULT NULL,
+  `type` int(1) DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -194,9 +197,10 @@ CREATE TABLE `payment` (
 -- Dumping data untuk tabel `payment`
 --
 
-INSERT INTO `payment` (`id`, `transaksi_id`, `image`, `total_transfer`, `date_transfer`, `bank`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, '26fa7c7af9f103f8415c30c2c836c36f.jpg', 22000000, '2017-01-22', 1, 0, '2017-01-21 22:34:39', '2017-01-24 01:29:57'),
-(2, 1, '44b9bb63c052367e1fcc21986f8cea02.jpg', 20000000, '2017-01-24', 2, 2, '2017-01-21 22:42:01', '2017-01-24 01:29:24');
+INSERT INTO `payment` (`id`, `transaksi_id`, `image`, `total_transfer`, `date_transfer`, `bank`, `type`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, '26fa7c7af9f103f8415c30c2c836c36f.jpg', 22000000, '2017-01-22', 1, 2, 0, '2017-01-21 22:34:39', '2017-01-24 01:29:57'),
+(2, 1, '44b9bb63c052367e1fcc21986f8cea02.jpg', 20000000, '2017-01-24', 2, 2, 2, '2017-01-21 22:42:01', '2017-01-24 01:29:24'),
+(3, 4, 'a49af314de556236c85bd74bb3428dc1.jpg', 20000000, '2017-03-23', 2, 2, 2, '2017-03-22 20:26:46', '2017-03-22 20:33:26');
 
 -- --------------------------------------------------------
 
@@ -240,7 +244,9 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 (1, 1),
 (3, 2),
 (4, 1),
-(5, 2);
+(5, 2),
+(6, 2),
+(7, 2);
 
 -- --------------------------------------------------------
 
@@ -266,7 +272,8 @@ CREATE TABLE `transaksi` (
 INSERT INTO `transaksi` (`id`, `member_id`, `city`, `alamat`, `wedding_date`, `status`, `created_at`, `updated_at`) VALUES
 (1, 2, 'Badung', 'Jalan Buduk', '2017-02-03', 3, '2017-01-17 21:46:21', '2017-01-24 01:42:07'),
 (2, 2, 'Badung', 'Jalan Nangka Utara No.1', '2017-02-08', 1, '2017-01-19 19:43:00', '2017-01-19 19:43:00'),
-(3, 2, 'Denpasar', 'asasd', '2017-02-14', 1, '2017-01-25 23:37:05', '2017-01-25 23:37:05');
+(3, 2, 'Denpasar', 'asasd', '2017-02-14', 1, '2017-01-25 23:37:05', '2017-01-25 23:37:05'),
+(4, 3, 'Denpasar', 'Jalan Nangka', '2017-04-19', 3, '2017-03-22 20:26:22', '2017-03-22 20:33:26');
 
 -- --------------------------------------------------------
 
@@ -293,7 +300,8 @@ INSERT INTO `transaksi_detail` (`id`, `transaksi_id`, `item`, `qty`, `harga`, `t
 (1, 1, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-17 21:46:21', '2017-01-17 21:46:21'),
 (2, 2, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-19 19:43:00', '2017-01-19 19:43:00'),
 (3, 1, 'Kursi', 200, 3000, 600000, '2017-01-22 22:36:56', '2017-01-22 22:36:56'),
-(4, 3, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-25 23:37:05', '2017-01-25 23:37:05');
+(4, 3, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-25 23:37:05', '2017-01-25 23:37:05'),
+(5, 4, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-03-22 20:26:22', '2017-03-22 20:26:22');
 
 -- --------------------------------------------------------
 
@@ -304,6 +312,7 @@ INSERT INTO `transaksi_detail` (`id`, `transaksi_id`, `item`, `qty`, `harga`, `t
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -317,12 +326,13 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `status`, `type`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@mail.com', '$2y$10$vNsWSJXaQ.9ZiJRLpzJiYO48pS1I3M630cMBu1x08TiubZGUj1DEq', 'Q3HwrTDOyjwZYAtzwUFd3PoeTOltquODUhbMEQyZrZ02E73Ry7QsmBPSaZaT', 1, 1, '2016-12-09 00:00:14', '2017-01-26 20:04:41'),
-(2, 'Member', 'member@mail.com', '$2y$10$DkzQYvDDlZLNNkda4G0QTuOJChMTow7TpK8FqTIJGDtq.PGEbIMm2', 'HyoV8STKygwH245vczFQyoWX9rceN3DO5150teg2Pji2LJz40fxf1VzMcTpi', 1, 2, '2017-01-06 03:30:12', '2017-01-18 19:20:49'),
-(3, 'Hendra Wijaya', 'wijaya.imd@gmail.com', '$2y$10$S8iWFOj53H.erWSjwvP7uO465LkRgEh1LQs1qwjFmqfbdCovBLLra', 'hguVdEUSjG35gjAM6ugh6IFvPckqaDJbOV0hLFHbv5Unypg8yeib2m1b3fPq', 1, 2, '2017-01-16 06:25:45', '2017-01-18 19:21:12'),
-(4, 'Admin Bedebah', 'admin2@mail.com', '$2y$10$GhrysuEvvYz8notT4e/Cz.6s9g.JpdIOFLjUD6m/4NVA4BKlItqMe', NULL, 0, 1, '2017-01-16 20:47:55', '2017-01-16 20:51:23'),
-(5, 'bedebah awesome', 'bedebah@mail.com', '$2y$10$B7W5KvwINS0OT9diTmXMAe0hvuGzAqk4ctHS/odU9ydl6..J5Na92', 'hKV12m1ws2CLwjunzKBiuc39n1IxqpOIdIQtl44HOIshbdRMTkUEGraVRxfm', 1, 2, '2017-01-17 20:50:21', '2017-01-26 20:06:03');
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `remember_token`, `status`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin', 'admin@mail.com', '$2y$10$vNsWSJXaQ.9ZiJRLpzJiYO48pS1I3M630cMBu1x08TiubZGUj1DEq', 'GCtJ1qzigYPzZ7nrVIMht08ilBBtnzJXjDeeMLxwiIfcF38jXo6AGHlpTlml', 1, 1, '2016-12-09 00:00:14', '2017-03-22 20:14:32'),
+(3, 'Hendra Wijaya', 'hendra', 'wijaya.imd@gmail.com', '$2y$10$DfaLAfG23BFtFVrg91EB0.Kf8CIyp6C.BzTGf0Oj3n.4qZByzhDzG', 'hguVdEUSjG35gjAM6ugh6IFvPckqaDJbOV0hLFHbv5Unypg8yeib2m1b3fPq', 1, 2, '2017-01-16 06:25:45', '2017-01-18 19:21:12'),
+(4, 'Admin Bedebah', 'bedebah', 'admin2@mail.com', '$2y$10$nnHz..lPFiCe3wITQff1e.WzaeVdXje1hbUjJq0GsMV/EjrmOAuge', NULL, 1, 1, '2017-01-16 20:47:55', '2017-03-22 20:40:18'),
+(5, 'bedebah awesome', 'awesome', 'bedebah@mail.com', '$2y$10$B7W5KvwINS0OT9diTmXMAe0hvuGzAqk4ctHS/odU9ydl6..J5Na92', 'hKV12m1ws2CLwjunzKBiuc39n1IxqpOIdIQtl44HOIshbdRMTkUEGraVRxfm', 1, 2, '2017-01-17 20:50:21', '2017-01-26 20:06:03'),
+(6, 'Bedebah Member', 'member888', 'master@mail.com', '$2y$10$DfaLAfG23BFtFVrg91EB0.Kf8CIyp6C.BzTGf0Oj3n.4qZByzhDzG', 'Eu32iySTtd5UUlh8JuTJdoToSABxvrt7iRkAK5o1g8KuWLISDKKTG2Z4d4Me', 1, 2, '2017-03-22 20:19:11', '2017-03-22 20:31:52'),
+(7, 'Test Member', 'testmember888', 'memberas@mailc.com', '$2y$10$YrWfXWBDrkcjOoVDrzgiK.DzWv7RiP/5YdHKHIDBe3GsFzZ9CrxZ6', NULL, 1, 2, '2017-03-22 20:36:43', '2017-03-22 20:37:06');
 
 --
 -- Indexes for dumped tables
@@ -428,7 +438,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -448,7 +458,7 @@ ALTER TABLE `paket_detail`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -458,17 +468,17 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --

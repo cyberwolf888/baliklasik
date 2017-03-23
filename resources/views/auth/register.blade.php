@@ -52,6 +52,16 @@
                                 @endif
                             </div>
                             <!-- Text input-->
+                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                                <label class=" control-label" for="username">Username <span class="required">*</span></label>
+                                <input id="username" name="username" type="text" placeholder="E-Mail" class="form-control input-md" value="{{ old('username') }}" required>
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- Text input-->
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label class=" control-label" for="email">E-Mail <span class="required">*</span></label>
                                 <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md" value="{{ old('email') }}" required>

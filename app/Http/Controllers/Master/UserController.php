@@ -36,6 +36,7 @@ class UserController extends Controller
         $this->validate($request, [
             'nama' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
+            'username' => 'required|max:50|unique:users',
             'password' => 'required|min:6|confirmed',
             'no_hp' => 'required|max:255|alpha_num|min:6',
             'alamat' => 'required|max:255'
@@ -46,6 +47,7 @@ class UserController extends Controller
         $user = new User();
 
         $user->name = $request->nama;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = bcrypt($request['password']);
         $user->status = $request->status;
@@ -84,6 +86,7 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required|max:255',
+            'username' => 'required|max:50',
             'email' => 'required|email|max:255',
             'password' => 'required|min:6|confirmed',
             'no_hp' => 'required|max:255|alpha_num|min:6',
@@ -95,6 +98,7 @@ class UserController extends Controller
         $user = $member->user;
 
         $user->name = $request->nama;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = bcrypt($request['password']);
         $user->status = $request->status;
@@ -146,12 +150,14 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required|max:255',
+            'username' => 'required|max:50|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed'
         ]);
 
         $model = new User();
         $model->name = $request->nama;
+        $model->username = $request->username;
         $model->email = $request->email;
         $model->password = bcrypt($request['password']);
         $model->status = $request->status;
@@ -182,12 +188,14 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required|max:255',
+            'username' => 'required|max:50',
             'email' => 'required|email|max:255',
             'password' => 'required|min:6|confirmed'
         ]);
 
         $model = User::findOrFail($id);
         $model->name = $request->nama;
+        $model->username = $request->username;
         $model->email = $request->email;
         $model->password = bcrypt($request['password']);
         $model->status = $request->status;
