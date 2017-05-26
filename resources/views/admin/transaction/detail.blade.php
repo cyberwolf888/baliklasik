@@ -48,6 +48,12 @@
                                     </tr>
                                     <tr>
                                         <td>
+                                            <h4><small>Member Telp</small></h4>
+                                            <h4>{{ $model->member->no_hp }}</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             <h4><small>Weding Date</small></h4>
                                             <h4>{{ date('d F Y',strtotime($model->wedding_date)) }}</h4>
                                         </td>

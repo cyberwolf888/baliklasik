@@ -58,6 +58,35 @@
     </div><!-- logo-area -->
 
     <ul class="nav navbar-nav toolbar pull-right">
+        <?php
+            $payments = \App\Models\Payment::where(['status'=>\App\Models\Payment::STATUS_WAITING_APPROVED])->get();
+            $count_payument = $payments->count();
+        ?>
+        <li class="dropdown toolbar-icon-bg">
+            <a href="#" class="hasnotifications dropdown-toggle" data-toggle='dropdown'><span class="icon-bg"><i class="material-icons">notifications</i></span><span class="badge badge-teal">{{ $count_payument > 0 ? $count_payument : null }}</span></a>
+            <div class="dropdown-menu animated notifications">
+                <div class="topnav-dropdown-header">
+                    <span>{{ $count_payument }} new payment</span>
+                </div>
+                <div class="scroll-pane">
+                    <ul class="media-list scroll-content">
+                        @foreach($payments as $payment)
+                        <li class="media notification-info">
+                            <a href="{{ route('admin.transaction.detail',$payment->transaksi_id) }}">
+                                <div class="media-left">
+                                    <span class="notification-icon"><i class="material-icons">shopping_cart</i></span>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="notification-heading">A new payment has been placed.</h4>
+                                    <span class="notification-time">{{ date('d F, H:i',strtotime($payment->created_at)) }}</span>
+                                </div>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </li>
 
         <li class="toolbar-icon-bg appear-on-search ov-h" id="trigger-search-close">
             <a class="toggle-fullscreen"><span class="icon-bg">

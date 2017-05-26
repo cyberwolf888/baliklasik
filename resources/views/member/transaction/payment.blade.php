@@ -100,9 +100,9 @@
                                         <select class="form-control" name="bank" required>
                                             <option value="1">BCA</option>
                                             <option value="2">Mandiri</option>
-                                            <option value="2">BNI</option>
-                                            <option value="2">BRI</option>
-                                            <option value="2">CIMB</option>
+                                            <option value="3">BNI</option>
+                                            <option value="4">BRI</option>
+                                            <option value="5">CIMB</option>
                                         </select>
                                         @if ($errors->has('bank'))
                                             <span class="help-block">

@@ -77,10 +77,11 @@
                                             <table class="table ceremony">
                                                 <thead>
                                                 <tr>
-                                                    <th class="col-md-4">Item</th>
+                                                    <th class="col-md-3">Item</th>
                                                     <th class="col-md-2">Price</th>
-                                                    <th class="col-md-2">Qty</th>
-                                                    <th class="col-md-1">Total</th>
+                                                    <th class="col-md-1">Qty</th>
+                                                    <th class="col-md-2">Created At</th>
+                                                    <th class="col-md-2">Total</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -89,19 +90,20 @@
                                                         <th scope="row"> {{ $detail->item }}</th>
                                                         <td>Rp {{ number_format($detail->harga,0,',','.') }}</td>
                                                         <td>{{ $detail->qty }}</td>
+                                                        <td width="100">{{ date('d F Y',strtotime($detail->created_at)) }}</td>
                                                         <td>Rp {{ number_format($detail->total,0,',','.') }}</td>
                                                     </tr>
                                                 @endforeach
                                                 <tr>
-                                                    <th scope="row" colspan="3"> <center><b>Total</b></center></th>
+                                                    <th scope="row" colspan="4"> <center><b>Total</b></center></th>
                                                     <td>Rp {{ number_format($row->getTotal(),0,',','.') }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row" colspan="3"> <center><b>Total Paid</b></center></th>
+                                                    <th scope="row" colspan="4"> <center><b>Total Paid</b></center></th>
                                                     <td>Rp {{ number_format($row->getTotalPaid(),0,',','.') }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row" colspan="3"> <center><b>Due Payment</b></center></th>
+                                                    <th scope="row" colspan="4"> <center><b>Due Payment</b></center></th>
                                                     <td>Rp {{ number_format($row->getTotal()-$row->getTotalPaid(),0,',','.') }}</td>
                                                 </tr>
                                                 </tbody>
