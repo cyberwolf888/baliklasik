@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 28 Mar 2017 pada 14.52
--- Versi Server: 10.1.13-MariaDB
--- PHP Version: 7.0.5
+-- Generation Time: May 27, 2017 at 12:37 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gallery`
+-- Table structure for table `gallery`
 --
 
 CREATE TABLE `gallery` (
@@ -36,7 +36,7 @@ CREATE TABLE `gallery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `gallery`
+-- Dumping data for table `gallery`
 --
 
 INSERT INTO `gallery` (`id`, `image`, `title`, `deskripsi`, `created_at`, `updated_at`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `gallery` (`id`, `image`, `title`, `deskripsi`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `items`
+-- Table structure for table `items`
 --
 
 CREATE TABLE `items` (
@@ -59,7 +59,7 @@ CREATE TABLE `items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `items`
+-- Dumping data for table `items`
 --
 
 INSERT INTO `items` (`id`, `nama`, `harga`, `satuan`, `created_at`, `updated_at`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `items` (`id`, `nama`, `harga`, `satuan`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `member`
+-- Table structure for table `member`
 --
 
 CREATE TABLE `member` (
@@ -83,19 +83,20 @@ CREATE TABLE `member` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `member`
+-- Dumping data for table `member`
 --
 
 INSERT INTO `member` (`id`, `user_id`, `nama`, `no_hp`, `alamat`, `created_at`, `updated_at`) VALUES
 (1, 3, 'Hendra Wijaya', '82247464193', 'Jalan Raya Pemogan No.18A\r\nkantor kamarmurah.com', '2017-01-16 06:25:45', '2017-01-16 06:25:45'),
 (2, 5, 'bedebah awesome', '08573736374', 'Jalan Bedebah', '2017-01-17 20:50:21', '2017-01-18 20:38:37'),
 (3, 6, 'Bedebah Member', '08485949', 'Jalan Wisnu Marga Belayu No 19', '2017-03-22 20:19:11', '2017-03-22 20:19:11'),
-(4, 7, 'Test Member', '0858493783', 'Jalan Denpasar', '2017-03-22 20:36:43', '2017-03-22 20:36:43');
+(4, 7, 'Test Member', '0858493783', 'Jalan Denpasar', '2017-03-22 20:36:43', '2017-03-22 20:36:43'),
+(5, 8, 'Member', '082247464196', 'Jalan Wisnu Marga Belayu No 19', '2017-05-27 01:18:16', '2017-05-27 01:18:16');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -105,7 +106,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -116,7 +117,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `paket`
+-- Table structure for table `paket`
 --
 
 CREATE TABLE `paket` (
@@ -130,7 +131,7 @@ CREATE TABLE `paket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `paket`
+-- Dumping data for table `paket`
 --
 
 INSERT INTO `paket` (`id`, `nama`, `harga`, `status`, `deskripsi`, `created_at`, `updated_at`) VALUES
@@ -139,7 +140,7 @@ INSERT INTO `paket` (`id`, `nama`, `harga`, `status`, `deskripsi`, `created_at`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `paket_detail`
+-- Table structure for table `paket_detail`
 --
 
 CREATE TABLE `paket_detail` (
@@ -151,7 +152,7 @@ CREATE TABLE `paket_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `paket_detail`
+-- Dumping data for table `paket_detail`
 --
 
 INSERT INTO `paket_detail` (`id`, `paket_id`, `value`, `created_at`, `updated_at`) VALUES
@@ -165,7 +166,7 @@ INSERT INTO `paket_detail` (`id`, `paket_id`, `value`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -177,7 +178,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `payment`
+-- Table structure for table `payment`
 --
 
 CREATE TABLE `payment` (
@@ -194,7 +195,7 @@ CREATE TABLE `payment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `payment`
+-- Dumping data for table `payment`
 --
 
 INSERT INTO `payment` (`id`, `transaksi_id`, `image`, `total_transfer`, `date_transfer`, `bank`, `type`, `status`, `created_at`, `updated_at`) VALUES
@@ -205,7 +206,7 @@ INSERT INTO `payment` (`id`, `transaksi_id`, `image`, `total_transfer`, `date_tr
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -218,7 +219,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
@@ -228,7 +229,7 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role_user`
+-- Table structure for table `role_user`
 --
 
 CREATE TABLE `role_user` (
@@ -237,7 +238,7 @@ CREATE TABLE `role_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `role_user`
+-- Dumping data for table `role_user`
 --
 
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
@@ -246,12 +247,13 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 (4, 1),
 (5, 2),
 (6, 2),
-(7, 2);
+(7, 2),
+(8, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -260,25 +262,21 @@ CREATE TABLE `transaksi` (
   `city` varchar(255) DEFAULT NULL,
   `alamat` text,
   `wedding_date` date DEFAULT NULL,
+  `tinggi_pria` int(11) DEFAULT NULL,
+  `tinggi_wanita` int(11) DEFAULT NULL,
+  `berat_pria` int(11) DEFAULT NULL,
+  `berat_wanita` int(11) DEFAULT NULL,
+  `ukuran_pria` varchar(5) DEFAULT NULL,
+  `ukuran_wanita` varchar(5) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `transaksi`
---
-
-INSERT INTO `transaksi` (`id`, `member_id`, `city`, `alamat`, `wedding_date`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Badung', 'Jalan Buduk', '2017-02-03', 3, '2017-01-17 21:46:21', '2017-01-24 01:42:07'),
-(2, 2, 'Badung', 'Jalan Nangka Utara No.1', '2017-02-08', 1, '2017-01-19 19:43:00', '2017-01-19 19:43:00'),
-(3, 2, 'Denpasar', 'asasd', '2017-02-14', 1, '2017-01-25 23:37:05', '2017-01-25 23:37:05'),
-(4, 3, 'Denpasar', 'Jalan Nangka', '2017-04-19', 3, '2017-03-22 20:26:22', '2017-03-22 20:33:26');
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi_detail`
+-- Table structure for table `transaksi_detail`
 --
 
 CREATE TABLE `transaksi_detail` (
@@ -293,7 +291,7 @@ CREATE TABLE `transaksi_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `transaksi_detail`
+-- Dumping data for table `transaksi_detail`
 --
 
 INSERT INTO `transaksi_detail` (`id`, `transaksi_id`, `item`, `qty`, `harga`, `total`, `created_at`, `updated_at`) VALUES
@@ -301,12 +299,14 @@ INSERT INTO `transaksi_detail` (`id`, `transaksi_id`, `item`, `qty`, `harga`, `t
 (2, 2, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-19 19:43:00', '2017-01-19 19:43:00'),
 (3, 1, 'Kursi', 200, 3000, 600000, '2017-01-22 22:36:56', '2017-01-22 22:36:56'),
 (4, 3, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-01-25 23:37:05', '2017-01-25 23:37:05'),
-(5, 4, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-03-22 20:26:22', '2017-03-22 20:26:22');
+(5, 4, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-03-22 20:26:22', '2017-03-22 20:26:22'),
+(6, 5, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-05-27 02:21:49', '2017-05-27 02:21:49'),
+(7, 6, 'Paket Wedding Hemat', 1, 45000000, 45000000, '2017-05-27 02:24:30', '2017-05-27 02:24:30');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -323,7 +323,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `remember_token`, `status`, `type`, `created_at`, `updated_at`) VALUES
@@ -332,7 +332,8 @@ INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `remember_to
 (4, 'Admin Bedebah', 'bedebah', 'admin2@mail.com', '$2y$10$nnHz..lPFiCe3wITQff1e.WzaeVdXje1hbUjJq0GsMV/EjrmOAuge', NULL, 1, 1, '2017-01-16 20:47:55', '2017-03-22 20:40:18'),
 (5, 'bedebah awesome', 'awesome', 'bedebah@mail.com', '$2y$10$B7W5KvwINS0OT9diTmXMAe0hvuGzAqk4ctHS/odU9ydl6..J5Na92', 'hKV12m1ws2CLwjunzKBiuc39n1IxqpOIdIQtl44HOIshbdRMTkUEGraVRxfm', 1, 2, '2017-01-17 20:50:21', '2017-01-26 20:06:03'),
 (6, 'Bedebah Member', 'member888', 'master@mail.com', '$2y$10$DfaLAfG23BFtFVrg91EB0.Kf8CIyp6C.BzTGf0Oj3n.4qZByzhDzG', 'Eu32iySTtd5UUlh8JuTJdoToSABxvrt7iRkAK5o1g8KuWLISDKKTG2Z4d4Me', 1, 2, '2017-03-22 20:19:11', '2017-03-22 20:31:52'),
-(7, 'Test Member', 'testmember888', 'memberas@mailc.com', '$2y$10$YrWfXWBDrkcjOoVDrzgiK.DzWv7RiP/5YdHKHIDBe3GsFzZ9CrxZ6', NULL, 1, 2, '2017-03-22 20:36:43', '2017-03-22 20:37:06');
+(7, 'Test Member', 'testmember888', 'memberas@mailc.com', '$2y$10$YrWfXWBDrkcjOoVDrzgiK.DzWv7RiP/5YdHKHIDBe3GsFzZ9CrxZ6', NULL, 1, 2, '2017-03-22 20:36:43', '2017-03-22 20:37:06'),
+(8, 'Member', 'member', 'member@mail.com', '$2y$10$8E4OtM/5EVybe2RGXMlYJ.r5U6iOf2d0bLLJjzWRX7NMcLD70qpVe', 'B7mdCQFDbFktFmUJsCsYOXZYyeTxIIGmnDqbAS7RhGQNpzphDAtk48RrKhBB', 1, 2, '2017-05-27 01:18:16', '2017-05-27 02:25:32');
 
 --
 -- Indexes for dumped tables
@@ -438,7 +439,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -468,23 +469,23 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `role_user`
+-- Constraints for table `role_user`
 --
 ALTER TABLE `role_user`
   ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

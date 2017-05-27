@@ -48,6 +48,18 @@
                                     </tr>
                                     <tr>
                                         <td>
+                                            <h4><small>Ukuran Pria</small></h4>
+                                            <h4>{{ $model->ukuran_pria }}</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4><small>Ukuran Wanita</small></h4>
+                                            <h4>{{ $model->ukuran_wanita }}</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             <h4><small>Member Telp</small></h4>
                                             <h4>{{ $model->member->no_hp }}</h4>
                                         </td>

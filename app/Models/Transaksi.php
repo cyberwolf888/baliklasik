@@ -50,4 +50,31 @@ class Transaksi extends Model
     {
         return $this->belongsTo('App\Models\Member', 'member_id');
     }
+
+    public function getSize($tinggi, $berat)
+    {
+        if($tinggi>=150 && $tinggi<=165 && $berat>=40 && $berat<=55){
+            return 'S';
+        }elseif ($tinggi>=150 && $tinggi<=175 && $berat>=50 && $berat<=60){
+            return 'M';
+        }elseif ($tinggi>=160 && $tinggi<=185 && $berat>=55 && $berat<=75){
+            return 'L';
+        }elseif ($tinggi>=165 && $tinggi<=190 && $berat>=65 && $berat<=90){
+            return 'XL';
+        }else{
+            return 'XXL';
+        }
+    }
+
+    public function getSizeDetail($ukuran)
+    {
+        $size = [
+            'S'=>'S (Panjang = 65 cm, Lebar = 40 cm)',
+            'M'=>'M (Panjang = 68 cm, Lebar = 45 cm)',
+            'L'=>'L (Panjang = 70 cm, Lebar = 50 cm)',
+            'XL'=>'XL (Panjang = 73 cm, Lebar = 55 cm)'
+        ];
+
+        return $size[$ukuran];
+    }
 }

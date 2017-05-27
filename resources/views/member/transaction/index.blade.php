@@ -57,6 +57,7 @@
                             <div class="col-md-3"> Package </div>
                             <div class="col-md-2">Wedding Date</div>
                             <div class="col-md-3">Location</div>
+                            <div class="col-md-1">Sisze</div>
                             <div class="col-md-2">Total</div>
                             <div class="col-md-1">Status</div>
                         </div>
@@ -68,6 +69,7 @@
                                 <div class="col-md-3"><a class="#" data-toggle="collapse" href="#Ceremony{{ $row->id }}" aria-expanded="false" aria-controls="Ceremony"> {{ $row->getLabel() }} </a> </div>
                                 <div class="col-md-2">{{ date('d F Y',strtotime($row->wedding_date)) }}</div>
                                 <div class="col-md-3">{{ $row->alamat.', '.$row->city }}</div>
+                                <div class="col-md-1">Pria: {{ $row->ukuran_pria }}<br>Wanita: {{ $row->ukuran_wanita }}</div>
                                 <div class="col-md-2">{{ number_format($row->getTotal(),0,',','.') }}</div>
                                 <div class="col-md-1">{{ $row->getStatus() }}</div>
                                 <div class="collapse col-md-12 item-title" id="Ceremony{{ $row->id }}">
@@ -90,7 +92,7 @@
                                                         <th scope="row"> {{ $detail->item }}</th>
                                                         <td>Rp {{ number_format($detail->harga,0,',','.') }}</td>
                                                         <td>{{ $detail->qty }}</td>
-                                                        <td width="100">{{ date('d F Y',strtotime($detail->created_at)) }}</td>
+                                                        <td width="100">{{ date('d F Y, H:i',strtotime($detail->created_at)) }}</td>
                                                         <td>Rp {{ number_format($detail->total,0,',','.') }}</td>
                                                     </tr>
                                                 @endforeach

@@ -36,17 +36,17 @@
     </div>
     <div class="main-container">
         <div class="container">
+            <form method="POST" action="{{ route('transaction.store', $id) }}">
+            {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
                     <div class="well-box">
                         <p>Please fill out the form below with correct information.</p>
-                        <form method="POST" action="{{ route('transaction.store', $id) }}">
-                        {{ csrf_field() }}
-                        <!-- Text input-->
+                            <!-- Text input-->
                             <div class="form-group{{ $errors->has('wedding_date') ? ' has-error' : '' }}">
                                 <label class="control-label" for="weddingdate">Wedding Date<span class="required">*</span></label>
                                 <div class="input-group">
-                                    <input type="text" name="wedding_date" class="form-control" id="weddingdate" placeholder="Wedding Date">
+                                    <input type="text" name="wedding_date" class="form-control" id="weddingdate" placeholder="Wedding Date" required>
                                     <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span>
                                 </div>
                                 @if ($errors->has('wedding_date'))
@@ -75,13 +75,75 @@
                                     </span>
                                 @endif
                             </div>
+
                             <!-- Text input-->
                             <div class="form-group{{ $errors->has('alamat') ? ' has-error' : '' }}">
                                 <label class="control-label" for="alamat">Veneu Address <span class="required">*</span></label>
-                                <input id="alamat" name="alamat" type="text" placeholder="Veneu Address" class="form-control input-md" value="{{ old('no_hp') }}" required>
+                                <input id="alamat" name="alamat" type="text" placeholder="Veneu Address" class="form-control input-md" value="{{ old('alamat') }}" required>
                                 @if ($errors->has('alamat'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('alamat') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        <div class="well-box">
+                            <h3>Ukuran Pakian Pengantin Pria</h3>
+
+                            <!-- Text input-->
+                            <div class="form-group{{ $errors->has('tinggi_pria') ? ' has-error' : '' }}">
+                                <label class="control-label" for="tinggi_pria">Tinggi Badan (cm) <span class="required">*</span></label>
+                                <input id="tinggi_pria" name="tinggi_pria" type="text" placeholder="" class="form-control input-md" value="{{ old('tinggi_pria') }}" required>
+                                @if ($errors->has('tinggi_pria'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tinggi_pria') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group{{ $errors->has('berat_pria') ? ' has-error' : '' }}">
+                                <label class="control-label" for="berat_pria">Berat Badan (kg) <span class="required">*</span></label>
+                                <input id="berat_pria" name="berat_pria" type="text" placeholder="" class="form-control input-md" value="{{ old('berat_pria') }}" required>
+                                @if ($errors->has('berat_pria'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('berat_pria') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        <div class="well-box">
+                            <h3>Ukuran Pakian Pengantin Wanita</h3>
+
+                            <!-- Text input-->
+                            <div class="form-group{{ $errors->has('tinggi_wanita') ? ' has-error' : '' }}">
+                                <label class="control-label" for="tinggi_wanita">Tinggi Badan (cm) <span class="required">*</span></label>
+                                <input id="tinggi_wanita" name="tinggi_wanita" type="text" placeholder="" class="form-control input-md" value="{{ old('tinggi_wanita') }}" required>
+                                @if ($errors->has('tinggi_wanita'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tinggi_wanita') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group{{ $errors->has('berat_wanita') ? ' has-error' : '' }}">
+                                <label class="control-label" for="berat_wanita">Berat Badan (kg) <span class="required">*</span></label>
+                                <input id="berat_wanita" name="berat_wanita" type="text" placeholder="" class="form-control input-md" value="{{ old('berat_wanita') }}" required>
+                                @if ($errors->has('berat_wanita'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('berat_wanita') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -90,10 +152,11 @@
                             <div class="form-group">
                                 <button id="submit" name="submit" class="btn btn-primary btn-lg">Book</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
         </div>
     </div>
 @endsection

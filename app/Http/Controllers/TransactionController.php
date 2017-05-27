@@ -30,6 +30,12 @@ class TransactionController extends Controller
         $transksi->wedding_date = date('Y-m-d', strtotime($request->wedding_date));
         $transksi->city = $request->city;
         $transksi->alamat = $request->alamat;
+        $transksi->tinggi_pria = $request->tinggi_pria;
+        $transksi->tinggi_wanita = $request->tinggi_wanita;
+        $transksi->berat_pria = $request->berat_pria;
+        $transksi->berat_wanita = $request->berat_wanita;
+        $transksi->ukuran_pria = $transksi->getSize($request->tinggi_pria,$request->berat_pria);
+        $transksi->ukuran_wanita = $transksi->getSize($request->tinggi_wanita,$request->berat_wanita);
         $transksi->status = 1;
         $transksi->save();
 
